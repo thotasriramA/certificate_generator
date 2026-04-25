@@ -1,0 +1,208 @@
+{% include 'header.html' %}
+
+<style>
+
+/* ===== BODY ===== */
+body {
+    margin: 0;
+    padding-top: 110px;
+    font-family: 'Segoe UI', sans-serif;
+
+    background: linear-gradient(
+        to right,
+        #eef5fb,
+        #c9dceb,
+        #a9c3d8
+    );
+}
+
+/* ===== TITLE ===== */
+h1 {
+    text-align: center;
+    color: #1c2b3a;
+    margin-bottom: 50px;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+/* ===== GRID ===== */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 20px 100px;
+}
+
+/* ===== LINK FIX (IMPORTANT) ===== */
+.course-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* ===== CARD ===== */
+.course-box {
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    cursor: pointer;
+
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+
+    transition: all 0.35s ease;
+}
+
+/* HOVER EFFECT */
+.course-box:hover {
+    transform: translateY(-10px) scale(1.04);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+
+    background: linear-gradient(
+        to right,
+        #eef5fb,
+        #c9dceb,
+        #a9c3d8
+    );
+}
+
+/* ICON */
+.icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+/* TITLE TEXT */
+.course-title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* ===== QUOTE ===== */
+.quote-section {
+    margin-top: 100px;
+    text-align: center;
+    padding: 50px;
+}
+
+.quote {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1c2b3a;
+}
+
+.sub-quote {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #4a5d73;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+
+<h1>🚀 Explore Career Courses</h1>
+
+<div class="container">
+
+    <!-- FULL STACK -->
+    <a href="{% url 'fullstackdevelopment' %}" class="course-link">
+        <div class="course-box">
+            <div class="icon">💻</div>
+            <div class="course-title">Full Stack Development</div>
+        </div>
+    </a>
+
+    <!-- DATA ANALYST -->
+    <a href="#" class="course-link">
+        <div class="course-box">
+            <div class="icon">📊</div>
+            <div class="course-title">Data Analyst</div>
+        </div>
+    </a>
+
+    <!-- DATA SCIENCE -->
+    <a href="#" class="course-link">
+        <div class="course-box">
+            <div class="icon">🤖</div>
+            <div class="course-title">Data Science</div>
+        </div>
+    </a>
+
+    <!-- CYBER SECURITY -->
+    <a href="#" class="course-link">
+        <div class="course-box">
+            <div class="icon">🔐</div>
+            <div class="course-title">Cyber Security</div>
+        </div>
+    </a>
+
+    <!-- AI ML -->
+    <a href="#" class="course-link">
+        <div class="course-box">
+            <div class="icon">🧠</div>
+            <div class="course-title">AI / Machine Learning</div>
+        </div>
+    </a>
+
+    <!-- CLOUD -->
+    <a href="#" class="course-link">
+        <div class="course-box">
+            <div class="icon">☁️</div>
+            <div class="course-title">Cloud Computing</div>
+        </div>
+    </a>
+
+    <!-- DEVOPS -->
+    <a href="#" class="course-link">
+        <div class="course-box">
+            <div class="icon">⚙️</div>
+            <div class="course-title">DevOps Engineering</div>
+        </div>
+    </a>
+
+    <!-- UI UX -->
+    <a href="#" class="course-link">
+        <div class="course-box">
+            <div class="icon">🎨</div>
+            <div class="course-title">UI/UX Design</div>
+        </div>
+    </a>
+
+    <!-- MOBILE -->
+    <a href="#" class="course-link">
+        <div class="course-box">
+            <div class="icon">📱</div>
+            <div class="course-title">Mobile App Development</div>
+        </div>
+    </a>
+
+</div>
+
+<!-- ===== QUOTE ===== -->
+<div class="quote-section">
+    <p class="quote">
+        "Your journey doesn’t end with learning — it begins when you prove it."
+    </p>
+
+    <p class="sub-quote">
+        Choose your path, build your skills, and earn your certificate 🚀
+    </p>
+</div>
+
+</body>
+</html>

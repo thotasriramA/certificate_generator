@@ -1,0 +1,208 @@
+{% include 'header.html' %}
+
+<style>
+    body {
+        margin-top:40px ;
+    }
+.main-content {
+    padding: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LEFT TEXT */
+.left-section {
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 48px;
+    color: #1c2b3a;
+}
+
+.highlight {
+    color: #1ea7ff;
+}
+
+p {
+    margin-top: 15px;
+    color: #4a5d73;
+    line-height: 1.6;
+}
+
+/* BUTTONS */
+.btns {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #1ea7ff, #4facfe);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-secondary {
+    border: 2px solid #1ea7ff;
+    color: #1ea7ff;
+    padding: 10px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+/* CERTIFICATE */
+.certificate-card {
+    width: 320px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border-top: 6px solid #1ea7ff;
+}
+
+.cert-icon {
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    border-radius: 50%;
+    background: #1ea7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: white;
+}
+
+.cert-title {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #5a7a9a;
+}
+
+.cert-name {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.cert-course {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #5a7a9a;
+}
+
+.cert-footer {
+    margin-top: 20px;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ===== WORKFLOW SECTION ===== */
+.workflow {
+    padding: 80px 60px;
+    text-align: center;
+}
+
+.workflow h2 {
+    font-size: 32px;
+    color: #1c2b3a;
+    margin-bottom: 40px;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.step {
+    background: rgba(255,255,255,0.4);
+    padding: 30px;
+    border-radius: 15px;
+    width: 220px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.step:hover {
+    transform: translateY(-10px);
+}
+
+.step h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #1c2b3a;
+}
+
+.step p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+</style>
+<div class="main-content">
+
+    <div class="left-section">
+        <h1>Complete Course</h1>
+        <h1 class="highlight">Get Certificates</h1>
+        <h1>in Seconds</h1>
+
+        <p>
+            Design, customize, and download professional certificates 
+            for courses, events, and achievements.
+        </p>
+
+       
+    </div>
+
+    <div class="certificate-card">
+        <div class="cert-icon">🏆</div>
+        <div class="cert-title">CERTIFICATE OF COMPLETION</div>
+        <div class="cert-name">Thota Sri Ram</div>
+        <div class="cert-course">
+            has successfully completed the course<br>
+            <b>Web Development Bootcamp</b>
+        </div>
+        <div class="cert-footer">
+            <span>📅 April 24, 2026</span>
+            <span>✅ Verified</span>
+        </div>
+    </div>
+
+</div>
+
+<!-- ===== WORKFLOW SECTION ===== -->
+<div id="workflow" class="workflow">
+
+    <h2>🚀 How It Works</h2>
+
+    <div class="steps">
+
+        <div class="step">
+            <h3>1️⃣ Register</h3>
+            <p>Create your account to get started</p>
+        </div>
+
+        <div class="step">
+            <h3>2️⃣ Complete Course</h3>
+            <p>Finish your selected course</p>
+        </div>
+
+        <div class="step">
+            <h3>3️⃣ Get Certificate</h3>
+            <p>Download your certificate instantly</p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

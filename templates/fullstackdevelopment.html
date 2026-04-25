@@ -1,0 +1,384 @@
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Full Stack Development – MyProject</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: linear-gradient(135deg, #e8f5fd 0%, #caeaf8 50%, #b8dff5 100%);
+      min-height: 100vh;
+      color: #0f2a45;
+    }
+
+    .page { padding: 36px 50px 60px; max-width: 1300px; margin: 0 auto; }
+
+    .breadcrumb { font-size: 0.82rem; color: #5a8ab0; margin-bottom: 22px; }
+    .breadcrumb a { color: #3a9bd5; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    /* COURSE HERO BANNER */
+    .course-hero {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 30px 36px;
+      margin-bottom: 36px;
+      border: 1px solid #b8dff5;
+      box-shadow: 0 8px 30px rgba(26,111,181,0.1);
+      display: flex; align-items: center; gap: 24px;
+      position: relative; overflow: hidden;
+    }
+    .course-hero::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 5px;
+      background: linear-gradient(90deg, #e07b39, #f0a070);
+    }
+    .course-icon { font-size: 3.5rem; }
+    .course-info h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem; font-weight: 800;
+      color: #0f2a45; margin-bottom: 8px;
+    }
+    .course-info p {
+      font-size: 0.93rem; color: #5a8ab0;
+      line-height: 1.6; max-width: 620px;
+    }
+    .course-tags { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+    .tag {
+      background: #e8f5fd; border: 1px solid #b8dff5;
+      color: #1a6fb5; border-radius: 50px;
+      padding: 4px 14px; font-size: 0.78rem; font-weight: 600;
+    }
+    .tag.orange { background: #fff3ec; border-color: #f0c4a8; color: #e07b39; }
+
+    /* SECTION HEADING */
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.25rem; font-weight: 800;
+      color: #0f2a45; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-title .badge {
+      background: #e07b39; color: white;
+      border-radius: 8px; padding: 2px 12px; font-size: 0.78rem;
+    }
+
+    /* VIDEO GRID */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+
+    /* VIDEO CARD */
+    .video-card {
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #b8dff5;
+      box-shadow: 0 6px 20px rgba(26,111,181,0.08);
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+    }
+    .video-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 36px rgba(26,111,181,0.15);
+    }
+
+    /* Thumbnail wrapper */
+    .thumb-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #0f2a45;
+      overflow: hidden;
+    }
+    .thumb-wrap img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .video-card:hover .thumb-wrap img { transform: scale(1.04); }
+
+    /* Play button overlay */
+    .play-overlay {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 54px; height: 54px;
+      background: rgba(255,255,255,0.92);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .video-card:hover .play-overlay {
+      transform: translate(-50%, -50%) scale(1.12);
+      background: #e07b39;
+      color: white;
+    }
+
+    /* YouTube label on thumbnail */
+    .yt-label {
+      position: absolute;
+      bottom: 8px; right: 10px;
+      background: rgba(0,0,0,0.7);
+      color: white; font-size: 0.68rem;
+      padding: 2px 8px; border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* Video info */
+    .video-info { padding: 16px 18px 20px; }
+    .video-num {
+      font-size: 0.72rem; font-weight: 700;
+      color: #e07b39; text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 5px;
+    }
+    .video-info h3 {
+      font-size: 0.97rem; font-weight: 600;
+      color: #0f2a45; margin-bottom: 7px; line-height: 1.4;
+    }
+    .video-info p { font-size: 0.81rem; color: #5a8ab0; line-height: 1.55; }
+    .video-meta {
+      display: flex; gap: 14px; margin-top: 10px;
+      font-size: 0.76rem; color: #8ab5d4;
+    }
+
+    /* Open YouTube button inside card */
+    .yt-btn {
+      display: inline-block;
+      margin-top: 12px;
+      background: #ff0000;
+      color: white;
+      padding: 7px 16px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .yt-btn:hover { opacity: 0.85; }
+
+    /* CERTIFICATE BUTTON */
+    .cert-section { text-align: center; margin-top: 10px; }
+    .cert-btn {
+      display: inline-block;
+      background: #e07b39; color: white;
+      padding: 16px 50px; border-radius: 50px;
+      font-size: 1.05rem; font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(224,123,57,0.35);
+      transition: all 0.25s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .cert-btn:hover {
+      background: #c96a2a;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(224,123,57,0.45);
+    }
+    .cert-note { margin-top: 10px; font-size: 0.85rem; color: #5a8ab0; }
+
+    /* FOOTER */
+    footer {
+      background: #0f2a45; color: #8ab5d4;
+      padding: 28px 50px; text-align: center;
+      font-size: 0.84rem; margin-top: 40px;
+    }
+    footer strong { color: #b8dff5; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1000px) {
+      .video-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .page { padding: 24px 20px 40px; }
+      .video-grid { grid-template-columns: 1fr; }
+      .course-hero { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  
+
+
+  <!-- Videos Section -->
+  <div class="section-title">
+    📹 Course Videos <span class="badge">9 Lessons</span>
+  </div>
+
+  <div class="video-grid">
+
+    <!-- LESSON 01 -->
+    <div class="video-card">
+      <div class="thumb-wrap" onclick="window.open('https://www.youtube.com/watch?v=UB1O30fR-EE','_blank')">
+        <img src="https://img.youtube.com/vi/UB1O30fR-EE/hqdefault.jpg" alt="HTML Course"/>
+        <div class="play-overlay">▶</div>
+        <div class="yt-label">▶ Watch on YouTube</div>
+      </div>
+      <div class="video-info">
+        <div class="video-num">Lesson 01</div>
+        <h3>HTML Full Course – Build a Website</h3>
+        <p>Learn HTML from scratch and build a complete website step by step.</p>
+        <div class="video-meta"><span>⏱ 2hr 4min</span><span>🆓 Free</span></div>
+        <a href="https://www.youtube.com/watch?v=UB1O30fR-EE" target="_blank" class="yt-btn">▶ Watch on YouTube</a>
+      </div>
+    </div>
+
+    <!-- LESSON 02 -->
+    <div class="video-card">
+      <div class="thumb-wrap" onclick="window.open('https://www.youtube.com/watch?v=1Rs2ND1ryYc','_blank')">
+        <img src="https://img.youtube.com/vi/1Rs2ND1ryYc/hqdefault.jpg" alt="CSS Course"/>
+        <div class="play-overlay">▶</div>
+        <div class="yt-label">▶ Watch on YouTube</div>
+      </div>
+      <div class="video-info">
+        <div class="video-num">Lesson 02</div>
+        <h3>CSS Full Course – Flexbox & Grid</h3>
+        <p>Master CSS styling, Flexbox, and Grid to design beautiful layouts.</p>
+        <div class="video-meta"><span>⏱ 11hr</span><span>🆓 Free</span></div>
+        <a href="https://www.youtube.com/watch?v=1Rs2ND1ryYc" target="_blank" class="yt-btn">▶ Watch on YouTube</a>
+      </div>
+    </div>
+
+    <!-- LESSON 03 -->
+    <div class="video-card">
+      <div class="thumb-wrap" onclick="window.open('https://www.youtube.com/watch?v=PkZNo7MFNFg','_blank')">
+        <img src="https://img.youtube.com/vi/PkZNo7MFNFg/hqdefault.jpg" alt="JavaScript Course"/>
+        <div class="play-overlay">▶</div>
+        <div class="yt-label">▶ Watch on YouTube</div>
+      </div>
+      <div class="video-info">
+        <div class="video-num">Lesson 03</div>
+        <h3>JavaScript Full Course for Beginners</h3>
+        <p>JavaScript fundamentals, DOM manipulation, and events — all in one video.</p>
+        <div class="video-meta"><span>⏱ 3hr 26min</span><span>🆓 Free</span></div>
+        <a href="https://www.youtube.com/watch?v=PkZNo7MFNFg" target="_blank" class="yt-btn">▶ Watch on YouTube</a>
+      </div>
+    </div>
+
+    <!-- LESSON 04 -->
+    <div class="video-card">
+      <div class="thumb-wrap" onclick="window.open('https://www.youtube.com/watch?v=bMknfKXIFA8','_blank')">
+        <img src="https://img.youtube.com/vi/bMknfKXIFA8/hqdefault.jpg" alt="React Course"/>
+        <div class="play-overlay">▶</div>
+        <div class="yt-label">▶ Watch on YouTube</div>
+      </div>
+      <div class="video-info">
+        <div class="video-num">Lesson 04</div>
+        <h3>React JS Full Course</h3>
+        <p>React components, hooks, and state management — everything in one place.</p>
+        <div class="video-meta"><span>⏱ 9hr 49min</span><span>🆓 Free</span></div>
+        <a href="https://www.youtube.com/watch?v=bMknfKXIFA8" target="_blank" class="yt-btn">▶ Watch on YouTube</a>
+      </div>
+    </div>
+
+    <!-- LESSON 05 -->
+    <div class="video-card">
+      <div class="thumb-wrap" onclick="window.open('https://www.youtube.com/watch?v=Oe421EPjeBE','_blank')">
+        <img src="https://img.youtube.com/vi/Oe421EPjeBE/hqdefault.jpg" alt="Node.js Course"/>
+        <div class="play-overlay">▶</div>
+        <div class="yt-label">▶ Watch on YouTube</div>
+      </div>
+      <div class="video-info">
+        <div class="video-num">Lesson 05</div>
+        <h3>Node.js & Express Full Course</h3>
+        <p>Learn backend development with Node.js and Express.js from scratch.</p>
+        <div class="video-meta"><span>⏱ 8hr 16min</span><span>🆓 Free</span></div>
+        <a href="https://www.youtube.com/watch?v=Oe421EPjeBE" target="_blank" class="yt-btn">▶ Watch on YouTube</a>
+      </div>
+    </div>
+
+    <!-- LESSON 06 -->
+    <div class="video-card">
+      <div class="thumb-wrap" onclick="window.open('https://www.youtube.com/watch?v=W6NZfCO5SIk','_blank')">
+        <img src="https://img.youtube.com/vi/W6NZfCO5SIk/hqdefault.jpg" alt="Python Course"/>
+        <div class="play-overlay">▶</div>
+        <div class="yt-label">▶ Watch on YouTube</div>
+      </div>
+      <div class="video-info">
+        <div class="video-num">Lesson 06</div>
+        <h3>Python for Beginners – Full Course</h3>
+        <p>Python basics to advanced concepts — a complete beginner's guide.</p>
+        <div class="video-meta"><span>⏱ 5hr 27min</span><span>🆓 Free</span></div>
+        <a href="https://www.youtube.com/watch?v=W6NZfCO5SIk" target="_blank" class="yt-btn">▶ Watch on YouTube</a>
+      </div>
+    </div>
+
+    <!-- LESSON 07 -->
+    <div class="video-card">
+      <div class="thumb-wrap" onclick="window.open('https://www.youtube.com/watch?v=rHux0gMZ3Eg','_blank')">
+        <img src="https://img.youtube.com/vi/rHux0gMZ3Eg/hqdefault.jpg" alt="Django Course"/>
+        <div class="play-overlay">▶</div>
+        <div class="yt-label">▶ Watch on YouTube</div>
+      </div>
+      <div class="video-info">
+        <div class="video-num">Lesson 07</div>
+        <h3>Django Full Course – Python Web Framework</h3>
+        <p>Build a complete web application using the Django framework.</p>
+        <div class="video-meta"><span>⏱ 2hr 20min</span><span>🆓 Free</span></div>
+        <a href="https://www.youtube.com/watch?v=rHux0gMZ3Eg" target="_blank" class="yt-btn">▶ Watch on YouTube</a>
+      </div>
+    </div>
+
+    <!-- LESSON 08 -->
+    <div class="video-card">
+      <div class="thumb-wrap" onclick="window.open('https://www.youtube.com/watch?v=Bv1HTfPbuxA','_blank')">
+        <img src="https://img.youtube.com/vi/Bv1HTfPbuxA/hqdefault.jpg" alt="MySQL Course"/>
+        <div class="play-overlay">▶</div>
+        <div class="yt-label">▶ Watch on YouTube</div>
+      </div>
+      <div class="video-info">
+        <div class="video-num">Lesson 08</div>
+        <h3>MySQL Full Course</h3>
+        <p>Database design, queries, and joins — complete MySQL course in one video.</p>
+        <div class="video-meta"><span>⏱ 3hr 10min</span><span>🆓 Free</span></div>
+        <a href="https://www.youtube.com/watch?v=Bv1HTfPbuxA" target="_blank" class="yt-btn">▶ Watch on YouTube</a>
+      </div>
+    </div>
+
+    <!-- LESSON 09 -->
+    <div class="video-card">
+      <div class="thumb-wrap" onclick="window.open('https://www.youtube.com/watch?v=nu_pCVPKzTk','_blank')">
+        <img src="https://img.youtube.com/vi/nu_pCVPKzTk/hqdefault.jpg" alt="Git Course"/>
+        <div class="play-overlay">▶</div>
+        <div class="yt-label">▶ Watch on YouTube</div>
+      </div>
+      <div class="video-info">
+        <div class="video-num">Lesson 09</div>
+        <h3>Git & GitHub Full Course</h3>
+        <p>Version control, branching, and pull requests — work professionally.</p>
+        <div class="video-meta"><span>⏱ 1hr 8min</span><span>🆓 Free</span></div>
+        <a href="https://www.youtube.com/watch?v=nu_pCVPKzTk" target="_blank" class="yt-btn">▶ Watch on YouTube</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Certificate Button -->
+  <div class="cert-section">
+    <a href="" class="cert-btn">🏆 Get Your Certificate</a>
+    <p class="cert-note">Complete all videos and then generate your certificate!</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 <strong>MyProject</strong> — Complete Course. Get Certificate. 🏆</p>
+</footer>
+
+</body>
+</html>
