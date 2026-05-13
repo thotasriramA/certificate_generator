@@ -1,0 +1,176 @@
+{% include 'header.html' %}
+
+<style>
+
+/* ===== BODY ===== */
+body {
+    margin: 0;
+    padding-top: 110px;
+    font-family: 'Segoe UI', sans-serif;
+
+    background: linear-gradient(
+        to right,
+        #eef5fb,
+        #c9dceb,
+        #a9c3d8
+    );
+}
+
+/* ===== TITLE ===== */
+h1 {
+    text-align: center;
+    color: #1c2b3a;
+    margin-bottom: 40px;
+    font-size: 32px;
+}
+
+/* ===== GRID ===== */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 20px 80px;
+}
+
+/* ===== CARD ===== */
+.course-box {
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+
+    transition: all 0.3s ease;
+}
+
+/* HOVER */
+.course-box:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    background: linear-gradient(
+        to right,
+        #eef5fb,
+        #c9dceb,
+        #a9c3d8
+    );
+}
+
+/* ICON */
+.icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* TEXT */
+.course-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* ===== QUOTE ===== */
+.quote-section {
+    margin-top: 80px;
+    text-align: center;
+    padding: 40px;
+}
+
+.quote {
+    font-size: 26px;
+    font-weight: 600;
+    color: #1c2b3a;
+}
+
+.sub-quote {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #4a5d73;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+
+
+<h1>Explore Our Courses</h1>
+
+<div class="container">
+
+    <div class="course-box">
+        <div class="icon">🐍</div>
+        <div class="course-title">Python</div>
+    </div>
+
+    <div class="course-box">
+        <div class="icon">☕</div>
+        <div class="course-title">Java</div>
+    </div>
+
+    <div class="course-box">
+        <div class="icon">🔵</div>
+        <div class="course-title">C</div>
+    </div>
+
+    <div class="course-box">
+        <div class="icon">💠</div>
+        <div class="course-title">C++</div>
+    </div>
+
+    <div class="course-box">
+        <div class="icon">🟨</div>
+        <div class="course-title">JavaScript</div>
+    </div>
+
+    <div class="course-box">
+        <div class="icon">🌐</div>
+        <div class="course-title">HTML</div>
+    </div>
+
+    <div class="course-box">
+        <div class="icon">🎨</div>
+        <div class="course-title">CSS</div>
+    </div>
+
+    <div class="course-box">
+        <div class="icon">🟢</div>
+        <div class="course-title">Django</div>
+    </div>
+
+    <div class="course-box">
+        <div class="icon">🗄️</div>
+        <div class="course-title">SQL</div>
+    </div>
+
+</div>
+
+
+<!-- ===== ENDING ===== -->
+<div class="quote-section">
+
+    <p class="quote">
+        "Your journey doesn’t end with learning —  
+        it begins when you prove it."
+    </p>
+
+    <p class="sub-quote">
+        Complete your course today and showcase your achievement with confidence 🚀
+    </p>
+
+</div>
+
+</body>
+</html>

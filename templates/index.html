@@ -1,0 +1,921 @@
+{% load static %}
+
+<title>MyProject</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#dcecf8;
+    color:#0f172a;
+    overflow-x:hidden;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(60px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+@keyframes glow{
+
+    0%{
+        box-shadow:0 0 0px #2196f3;
+    }
+
+    50%{
+        box-shadow:0 0 35px rgba(33,150,243,0.5);
+    }
+
+    100%{
+        box-shadow:0 0 0px #2196f3;
+    }
+
+}
+.logo h1{
+    font-size:48px;
+    color:#ff7b2c;
+}
+
+.logo span{
+    color:#0f172a;
+}
+
+.logo p{
+    color:#ff7b2c;
+    font-size:14px;
+    margin-top:3px;
+}
+
+/* BUTTONS */
+
+
+
+.login-btn{
+
+    color:#0f172a;
+    border:2px solid #0f172a;
+
+}
+
+.login-btn:hover{
+
+    background:#0f172a;
+    color:white;
+
+}
+
+.signup-btn{
+
+    background:#2196f3;
+    color:white;
+
+}
+
+.signup-btn:hover{
+
+    transform:scale(1.05);
+
+}
+
+/* HERO */
+
+.hero{
+
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:170px 90px 100px;
+    gap:80px;
+
+}
+
+.hero-left{
+
+    width:55%;
+    animation:fadeUp 1s ease;
+
+}
+
+.hero-left h1{
+
+    font-size:95px;
+    line-height:110px;
+    margin-bottom:30px;
+
+}
+
+.hero-left span{
+    color:#2196f3;
+}
+
+.hero-left p{
+
+    font-size:24px;
+    line-height:42px;
+    color:#475569;
+    margin-bottom:50px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+    gap:25px;
+
+}
+
+.hero-buttons a{
+
+    text-decoration:none;
+    padding:18px 38px;
+    border-radius:14px;
+    font-size:18px;
+    font-weight:bold;
+    transition:0.3s;
+
+}
+
+.start-btn{
+
+    background:#2196f3;
+    color:white;
+    animation:glow 3s infinite;
+
+}
+
+.start-btn:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.course-btn{
+
+    background:white;
+    color:#0f172a;
+    border:2px solid #2196f3;
+
+}
+
+.course-btn:hover{
+
+    background:#2196f3;
+    color:white;
+
+}
+
+/* LOGIN CARD */
+
+.hero-right{
+
+    width:45%;
+    display:flex;
+    justify-content:center;
+    animation:fadeUp 1.2s ease;
+
+}
+
+
+
+
+
+.input-box{
+
+    margin-bottom:22px;
+
+}
+
+.input-box input{
+
+    width:100%;
+    padding:18px;
+    border:none;
+    outline:none;
+    border-radius:14px;
+    background:#eef5fb;
+    font-size:17px;
+
+}
+
+.login-submit{
+
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:14px;
+    background:#2196f3;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    margin-top:10px;
+
+}
+
+.login-submit:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.signup-text{
+
+    text-align:center;
+    margin-top:25px;
+    color:#64748b;
+
+}
+
+.signup-text a{
+
+    color:#2196f3;
+    text-decoration:none;
+    font-weight:bold;
+
+}
+
+/* SECTION COMMON */
+
+section{
+    animation:fadeUp 1s ease;
+}
+
+.section-title{
+
+    text-align:center;
+    font-size:60px;
+    margin-bottom:80px;
+
+}
+
+/* FEATURES */
+
+.features{
+
+    padding:120px 90px;
+
+}
+
+.feature-boxes{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:35px;
+
+}
+
+.feature{
+
+    background:white;
+    padding:45px;
+    border-radius:30px;
+    text-align:center;
+    transition:0.4s;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+}
+
+.feature:hover{
+
+    transform:translateY(-15px) scale(1.03);
+
+}
+
+.feature-icon{
+    font-size:55px;
+}
+
+.feature h2{
+
+    margin:25px 0;
+    color:#2196f3;
+    font-size:30px;
+
+}
+
+.feature p{
+
+    color:#475569;
+    line-height:34px;
+    font-size:18px;
+
+}
+
+/* COURSES */
+
+.courses{
+
+    padding:100px 90px;
+
+}
+
+.course-container{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:35px;
+
+}
+
+.course-card{
+
+    background:white;
+    padding:40px;
+    border-radius:30px;
+    transition:0.4s;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+}
+
+.course-card:hover{
+
+    transform:translateY(-15px);
+
+}
+
+.course-card h2{
+
+    color:#2196f3;
+    margin-bottom:20px;
+    font-size:30px;
+
+}
+
+.course-card p{
+
+    line-height:34px;
+    color:#475569;
+    font-size:18px;
+
+}
+
+.lock{
+
+    margin-top:25px;
+    display:inline-block;
+    background:#0f172a;
+    color:white;
+    padding:12px 22px;
+    border-radius:12px;
+    font-size:15px;
+
+}
+
+/* STEPS */
+
+.steps{
+
+    padding:120px 90px;
+
+}
+
+.step-container{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:35px;
+
+}
+
+.step{
+
+    background:white;
+    padding:45px;
+    border-radius:30px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+}
+
+.step h2{
+
+    margin:25px 0;
+    color:#2196f3;
+    font-size:30px;
+
+}
+
+.step p{
+
+    color:#475569;
+    line-height:34px;
+    font-size:18px;
+
+}
+
+/* CREATOR */
+
+.creator{
+
+    padding:120px 90px;
+    display:flex;
+    justify-content:center;
+
+}
+
+.creator-card{
+
+    width:1100px;
+    background:white;
+    border-radius:35px;
+    padding:60px;
+    display:flex;
+    align-items:center;
+    gap:60px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.08);
+
+}
+
+.creator-card img{
+
+    width:300px;
+    height:350px;
+    border-radius:30px;
+    object-fit:cover;
+
+}
+
+.creator-info h1{
+
+    font-size:55px;
+    margin-bottom:25px;
+
+}
+
+.creator-info p{
+
+    font-size:21px;
+    line-height:40px;
+    color:#475569;
+    margin-bottom:18px;
+
+}
+
+.contact{
+
+    margin-top:25px;
+
+}
+
+.contact p{
+
+    margin-bottom:10px;
+
+}
+
+/* FOOTER */
+
+footer{
+
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:50px;
+    margin-top:80px;
+
+}
+
+footer h2{
+
+    font-size:40px;
+    margin-bottom:20px;
+
+}
+
+footer p{
+
+    color:#cbd5e1;
+    margin-bottom:10px;
+    font-size:18px;
+
+}
+.login-btn {
+
+    background: linear-gradient(135deg, #2196f3, #42a5f5);
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(33, 150, 243, 0.25);
+
+}
+
+.login-btn:hover {
+
+    background: #0f172a;
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(15, 23, 42, 0.25);
+
+}
+
+.signup-btn {
+
+    background: #0f172a;
+    color: white;
+    border: 2px solid transparent;
+    padding: 14px 30px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
+
+}
+
+.signup-btn:hover {
+
+    background: white;
+    color: #2196f3;
+    border: 2px solid #2196f3;
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(33, 150, 243, 0.2);
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-left,
+    .hero-right{
+        width:100%;
+    }
+
+    .hero-left h1{
+        font-size:65px;
+        line-height:80px;
+    }
+
+    .creator-card{
+        flex-direction:column;
+        text-align:center;
+    }
+
+}
+
+</style>
+
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <h1>
+
+            Complete Courses <br>
+
+            <span>Generate Certificates</span> <br>
+
+            Build Your Career
+
+        </h1>
+
+        <p>
+
+            Learn Full Stack Development, Cyber Security,
+            Data Science, AI/ML, Cloud Computing and more.
+            Complete professional courses and instantly
+            generate beautiful certificates.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="/login/" class="start-btn">Start Learning</a>
+
+            <a href="/login/" class="course-btn">Login To View Courses</a>
+
+        </div>
+
+    </div>
+        <div class = "login-system" style = "padding-right: 20px; gap:10px;">
+            
+            <button href="/login/" class = "login-btn" >Login</button>
+            <button href="/signup/" class = "signup-btn" >Sign Up</button>
+            
+        </div>
+
+
+    </div>
+
+</section>
+
+<section class="features">
+
+    <h1 class="section-title">Platform Features</h1>
+
+    <div class="feature-boxes">
+
+        <div class="feature">
+
+            <div class="feature-icon">📚</div>
+
+            <h2>Professional Courses</h2>
+
+            <p>
+
+                Learn industry level technology courses
+                completely free with structured learning.
+
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <div class="feature-icon">🏆</div>
+
+            <h2>Certificate Generator</h2>
+
+            <p>
+
+                Generate professional certificates after
+                successfully completing your courses.
+
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <div class="feature-icon">🧠</div>
+
+            <h2>Practice & Projects</h2>
+
+            <p>
+
+                Improve your skills with practical examples,
+                mini projects and real world tasks.
+
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <div class="feature-icon">🚀</div>
+
+            <h2>Career Roadmaps</h2>
+
+            <p>
+
+                Follow complete developer roadmaps
+                to become job ready step-by-step.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="courses">
+
+    <h1 class="section-title">Popular Courses</h1>
+
+    <div class="course-container">
+
+        <div class="course-card">
+
+            <h2>Full Stack Development</h2>
+
+            <p>
+
+                Learn HTML, CSS, JavaScript,
+                Python, Django and React.
+
+            </p>
+
+            <div class="lock">
+
+                🔒 Login Required
+
+            </div>
+
+        </div>
+
+        <div class="course-card">
+
+            <h2>Cyber Security</h2>
+
+            <p>
+
+                Learn ethical hacking, networking,
+                penetration testing and security.
+
+            </p>
+
+            <div class="lock">
+
+                🔒 Login Required
+
+            </div>
+
+        </div>
+
+        <div class="course-card">
+
+            <h2>Data Science</h2>
+
+            <p>
+
+                Learn Machine Learning, Python,
+                Pandas and Data Analytics.
+
+            </p>
+
+            <div class="lock">
+
+                🔒 Login Required
+
+            </div>
+
+        </div>
+
+        <div class="course-card">
+
+            <h2>Cloud Computing</h2>
+
+            <p>
+
+                Learn AWS, Azure, DevOps
+                and cloud technologies.
+
+            </p>
+
+            <div class="lock">
+
+                🔒 Login Required
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="steps">
+
+    <h1 class="section-title">How It Works</h1>
+
+    <div class="step-container">
+
+        <div class="step">
+
+            <h2>1️⃣ Create Account</h2>
+
+            <p>
+
+                Create your free account using
+                email and password.
+
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <h2>2️⃣ Learn Courses</h2>
+
+            <p>
+
+                Complete your selected course
+                and improve your skills.
+
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <h2>3️⃣ Generate Certificate</h2>
+
+            <p>
+
+                Download your professional
+                certificate instantly.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="creator">
+
+    <div class="creator-card">
+
+        <img src="{% static 'images/sriram.jpg' %}" alt="Sriram">
+
+        <div class="creator-info">
+
+            <h1>Founder & Creator</h1>
+
+            <p>
+
+                Hi, I'm <b>Sriram</b>, a passionate
+                B.Tech Cyber Security student and
+                full stack developer.
+
+            </p>
+
+            <p>
+
+                I created MyProject to help students
+                learn professional technology skills,
+                complete courses and generate certificates
+                completely free.
+
+            </p>
+
+            <p>
+
+                This platform is specially designed for
+                students who want to improve their skills,
+                build projects and become job ready.
+
+            </p>
+
+            <div class="contact">
+
+                <p><b>Email:</b> sriram@example.com</p>
+
+                <p><b>Phone:</b> +91 9876543210</p>
+
+                <p><b>College:</b> St. Ann's College of Engineering & Technology</p>
+
+                <p><b>Department:</b> Cyber Security</p>
+
+                <p><b>Skills:</b> HTML, CSS, JavaScript, Python, Django, AI Tools</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <h2>MyProject</h2>
+
+    <p>Learn Skills • Complete Courses • Generate Certificates</p>
+
+    <p>© 2026 MyProject | Designed By Sriram</p>
+
+</footer>
+
