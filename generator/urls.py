@@ -15,11 +15,13 @@ urlpatterns = [
     path('about/', views.about, name='about'),
 
     path('signup/', views.signup, name='signup'),
-    path('login/', views.login, name='login'),
+    path('login_page/', views.login_page, name='login_page'),
 
     path('fullstackdevelopment/', views.fullstackdevelopment, name='fullstackdevelopment'),
 
     path('datanalysiscourse/', views.datanalysiscourse, name='datanalysiscourse'),
 
     path('chatbot/', views.chatbot, name='chatbot'),
+    path('chatboat/', views.chatboat, name='chatboat'),
+    path('logout/', views.logout_page, name='logout_page'),
 ]

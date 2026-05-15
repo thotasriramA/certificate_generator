@@ -1,225 +1,240 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sign Up – MyProject</title>
+
+
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #e8f5fd 0%, #caeaf8 50%, #b8dff5 100%);
-      padding: 20px;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    .card {
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 44px 40px;
-      width: 100%;
-      max-width: 420px;
-      box-shadow: 0 20px 60px rgba(26, 111, 181, 0.15), 0 4px 16px rgba(58, 155, 213, 0.1);
-      border: 1px solid #b8dff5;
-      position: relative;
-      overflow: hidden;
+    body{
+      font-family:'DM Sans',sans-serif;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#e8f5fd 0%,#caeaf8 50%,#b8dff5 100%);
+      padding:20px;
     }
 
-    /* top color bar like your cert card */
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 5px;
-      background: linear-gradient(90deg, #e07b39, #f0a070);
+    .card{
+      width:100%;
+      max-width:420px;
+      background:white;
+      border-radius:24px;
+      padding:44px 40px;
+      box-shadow:0 20px 60px rgba(26,111,181,0.15);
+      position:relative;
+      overflow:hidden;
     }
 
-    /* logo */
-    .logo {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #2d2d2d;
-      text-align: center;
-      margin-bottom: 6px;
-      text-decoration: none;
-      display: block;
-    }
-    .logo span { color: #e07b39; }
-
-    .tagline {
-      text-align: center;
-      font-size: 0.78rem;
-      color: #e07b39;
-      font-weight: 500;
-      margin-bottom: 28px;
+    .card::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:5px;
+      background:linear-gradient(90deg,#e07b39,#f0a070);
     }
 
-    h2 {
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #0f2a45;
-      margin-bottom: 6px;
+    .logo{
+      display:block;
+      text-align:center;
+      text-decoration:none;
+      font-family:'Syne',sans-serif;
+      font-size:1.5rem;
+      font-weight:800;
+      color:#2d2d2d;
+      margin-bottom:6px;
     }
 
-    .subtitle {
-      text-align: center;
-      font-size: 0.88rem;
-      color: #5a8ab0;
-      margin-bottom: 28px;
+    .logo span{
+      color:#e07b39;
     }
 
-    /* input group */
-    .input-group {
-      margin-bottom: 16px;
+    .tagline{
+      text-align:center;
+      color:#e07b39;
+      margin-bottom:28px;
+      font-size:0.8rem;
     }
 
-    .input-group label {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #0f2a45;
-      margin-bottom: 6px;
+    h2{
+      text-align:center;
+      margin-bottom:8px;
+      color:#0f2a45;
     }
 
-    .input-group input {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1.5px solid #b8dff5;
-      border-radius: 10px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      color: #0f2a45;
-      background: #f4faff;
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
+    .subtitle{
+      text-align:center;
+      color:#5a8ab0;
+      margin-bottom:25px;
+      font-size:0.9rem;
     }
 
-    .input-group input:focus {
-      border-color: #3a9bd5;
-      box-shadow: 0 0 0 3px rgba(58, 155, 213, 0.15);
-      background: #ffffff;
+    .message{
+      background:#ffe7e7;
+      color:red;
+      padding:10px;
+      border-radius:8px;
+      margin-bottom:15px;
+      font-size:14px;
     }
 
-    .input-group input::placeholder {
-      color: #a0bfd4;
+    .success{
+      background:#e6ffed;
+      color:green;
     }
 
-    /* sign up button */
-    .btn-signup {
-      width: 100%;
-      padding: 13px;
-      background: #e07b39;
-      color: #ffffff;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      margin-top: 8px;
-      transition: background 0.25s, transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 6px 20px rgba(224, 123, 57, 0.35);
+    .input-group{
+      margin-bottom:16px;
     }
 
-    .btn-signup:hover {
-      background: #c96a2a;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(224, 123, 57, 0.4);
+    .input-group label{
+      display:block;
+      margin-bottom:6px;
+      font-size:0.82rem;
+      font-weight:600;
+      color:#0f2a45;
     }
 
-    /* divider */
-    .divider {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 22px 0;
-    }
-    .divider::before, .divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: #b8dff5;
-    }
-    .divider span {
-      font-size: 0.78rem;
-      color: #5a8ab0;
-      white-space: nowrap;
+    .input-group input{
+      width:100%;
+      padding:12px 16px;
+      border:1.5px solid #b8dff5;
+      border-radius:10px;
+      outline:none;
+      background:#f4faff;
+      font-size:0.95rem;
     }
 
-    /* login link */
-    .login-link {
-      text-align: center;
-      font-size: 0.88rem;
-      color: #5a8ab0;
-      margin-top: 20px;
+    .input-group input:focus{
+      border-color:#3a9bd5;
+      background:white;
     }
 
-    .login-link a {
-      color: #e07b39;
-      font-weight: 600;
-      text-decoration: none;
+    .btn-signup{
+      width:100%;
+      padding:13px;
+      border:none;
+      border-radius:10px;
+      background:#e07b39;
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:10px;
     }
 
-    .login-link a:hover {
-      text-decoration: underline;
+    .btn-signup:hover{
+      background:#c96a2a;
+    }
+
+    .divider{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin:22px 0;
+    }
+
+    .divider::before,
+    .divider::after{
+      content:'';
+      flex:1;
+      height:1px;
+      background:#b8dff5;
+    }
+
+    .divider span{
+      color:#5a8ab0;
+      font-size:0.8rem;
+    }
+
+    .login-link{
+      text-align:center;
+      font-size:0.9rem;
+    }
+
+    .login-link a{
+      color:#e07b39;
+      text-decoration:none;
+      font-weight:600;
     }
 
   </style>
-</head>
-<body>
+
+
 
 <div class="card">
 
-  <a href="/" class="logo">My<span>Project</span></a>
-  <p class="tagline">Complete Course. Get Certificate.</p>
+  <a href="/" class="logo">
+    My<span>Project</span>
+  </a>
+
+  <p class="tagline">
+    Complete Course. Get Certificate.
+  </p>
 
   <h2>Create Account</h2>
-  <p class="subtitle">Join thousands of learners today 🚀</p>
 
-  <form method="POST" action="{% url 'signup' %}">
+  <p class="subtitle">
+    Join thousands of learners today 🚀
+  </p>
+
+  {% for message in messages %}
+      <div class="message {% if message.tags == 'success' %}success{% endif %}">
+          {{ message }}
+      </div>
+  {% endfor %}
+
+  <form method="POST">
+
     {% csrf_token %}
 
     <div class="input-group">
       <label>Full Name</label>
-      <input type="text" name="name" placeholder="Enter your full name" required/>
+      <input type="text" name="name" placeholder="Enter your full name" required>
     </div>
 
     <div class="input-group">
       <label>Email Address</label>
-      <input type="email" name="email" placeholder="Enter your email" required/>
+      <input type="email" name="email" placeholder="Enter your email" required>
     </div>
-    <div class = "input-group">
+
+    <div class="input-group">
       <label>Mobile Number</label>
-      <input type="phone" name="mobilenumber" placeholder="Enter Mobile Number" required/>
+      <input type="text" name="mobilenumber" placeholder="Enter mobile number" required>
+    </div>
 
     <div class="input-group">
       <label>Password</label>
-      <input type="password" name="password" placeholder="Create a password" required/>
+      <input type="password" name="password" placeholder="Create password" required>
     </div>
 
     <div class="input-group">
       <label>Confirm Password</label>
-      <input type="password" name="confirm_password" placeholder="Repeat your password" required/>
+      <input type="password" name="confirm_password" placeholder="Repeat password" required>
     </div>
 
-    <button type="submit" class="btn-signup">Create Account</button>
+    <button type="submit" class="btn-signup">
+      Create Account
+    </button>
 
   </form>
 
-  <div class="divider"><span>already have an account?</span></div>
+  <div class="divider">
+    <span>already have an account?</span>
+  </div>
 
   <div class="login-link">
-    <a href="{% url 'login' %}">Login In here →</a>
+    <a href="{% url 'login_page' %}">
+      Login Here →
+    </a>
   </div>
 
 </div>
 
-</body>
-</html>
