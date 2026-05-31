@@ -24,4 +24,5 @@ urlpatterns = [
     path('chatbot/', views.chatbot, name='chatbot'),
     path('chatboat/', views.chatboat, name='chatboat'),
     path('logout/', views.logout_page, name='logout_page'),
+    
 ]

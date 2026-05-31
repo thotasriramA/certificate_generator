@@ -1,1 +1,298 @@
 {% include 'header.html' %}
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f7fb;
+    color:#222;
+}
+
+/* HEADER */
+
+.page-header{
+    padding:35px 40px 20px;
+}
+
+.page-header h1{
+    font-size:30px;
+    color:#111;
+    line-height:1.4;
+    margin-bottom:8px;
+}
+
+.page-header p{
+    color:#666;
+    font-size:15px;
+}
+
+/* GRID */
+
+.video-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:25px;
+    padding:20px 40px 40px;
+}
+
+/* CARD */
+
+.video-card{
+    background:#fff;
+    border-radius:22px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.35s;
+    border:1px solid #e5ebf3;
+    box-shadow:0 4px 16px rgba(0,0,0,.05);
+}
+
+.video-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.10);
+}
+
+/* IMAGE */
+
+.thumb{
+    position:relative;
+    height:220px;
+    overflow:hidden;
+}
+
+.thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.video-card:hover img{
+    transform:scale(1.05);
+}
+
+/* PLAY */
+
+.play-icon{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:60px;
+    height:60px;
+    background:#ff0000;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    box-shadow:0 5px 15px rgba(0,0,0,.25);
+}
+
+/* CONTENT */
+
+.content{
+    padding:22px;
+}
+
+.title{
+    font-size:18px;
+    font-weight:600;
+    color:#111;
+    line-height:1.6;
+    margin-bottom:10px;
+}
+
+.channel{
+    color:#666;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.desc{
+    color:#555;
+    font-size:14px;
+    line-height:1.8;
+    margin-bottom:18px;
+}
+
+/* TAGS */
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.tag{
+    background:#eef3ff;
+    color:#2b5cff;
+    padding:7px 12px;
+    border-radius:10px;
+    font-size:12px;
+    font-weight:600;
+}
+
+/* BUTTON */
+
+.watch-btn{
+    width:100%;
+    border:none;
+    background:#2b5cff;
+    color:white;
+    padding:13px;
+    border-radius:12px;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.watch-btn:hover{
+    background:#1848e5;
+}
+
+</style>
+
+
+<div class="page-header">
+    <h1>📊 Data Analyst Learning Videos</h1>
+    <p>Choose a course and watch directly on YouTube</p>
+</div>
+
+
+<div class="video-grid" id="grid"></div>
+
+
+<script>
+
+const courses = [
+
+{
+id:"qfyynGeZkvY",
+title:"Data Analyst Bootcamp for Beginners",
+channel:"Alex The Analyst",
+desc:"Complete beginner roadmap covering SQL, Excel, Power BI and Python projects.",
+topics:["SQL","Excel","Python","Power BI"]
+},
+
+{
+id:"ua-CiDNNj30",
+title:"Python for Data Analysis",
+channel:"freeCodeCamp",
+desc:"Learn Python, pandas, numpy and visualization from scratch.",
+topics:["Python","Pandas","NumPy"]
+},
+
+{
+id:"r-uOLxNrNk8",
+title:"SQL Full Database Course",
+channel:"freeCodeCamp",
+desc:"Master SQL queries, joins and database concepts.",
+topics:["SQL","DBMS","Queries"]
+},
+
+{
+id:"TPMlZxRRaBQ",
+title:"Excel for Data Analysis",
+channel:"Leila Gharani",
+desc:"Learn pivot tables, formulas and Excel analytics.",
+topics:["Excel","Pivot","VLOOKUP"]
+},
+
+{
+id:"K2shF4bXajs",
+title:"Tableau Full Course",
+channel:"Simplilearn",
+desc:"Build dashboards and visual reports using Tableau.",
+topics:["Tableau","Dashboards"]
+},
+
+{
+id:"A2U3UZFlDsI",
+title:"Power BI Full Course",
+channel:"Edureka",
+desc:"Learn Power BI reports and DAX basics.",
+topics:["Power BI","DAX"]
+}
+
+];
+
+function render(){
+
+let html='';
+
+courses.forEach(c=>{
+
+html += `
+
+<div class="video-card"
+onclick="openVideo('${c.id}')">
+
+    <div class="thumb">
+
+        <img
+src="https://img.youtube.com/vi/${c.id}/hqdefault.jpg">
+
+        <div class="play-icon">
+            <i class="ti ti-player-play-filled"></i>
+        </div>
+
+    </div>
+
+    <div class="content">
+
+        <div class="title">
+            ${c.title}
+        </div>
+
+        <div class="channel">
+            ${c.channel}
+        </div>
+
+        <div class="desc">
+            ${c.desc}
+        </div>
+
+        <div class="tags">
+            ${c.topics.map(t =>
+                `<div class="tag">${t}</div>`
+            ).join('')}
+        </div>
+
+        
+
+    </div>
+
+</div>
+
+`;
+
+});
+
+document.getElementById('grid').innerHTML = html;
+
+}
+
+function openVideo(id){
+
+window.open(
+'https://www.youtube.com/watch?v=' + id,
+'_blank'
+);
+
+}
+
+render();
+
+</script>

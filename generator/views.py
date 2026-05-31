@@ -152,9 +152,27 @@ def logout_page(request):
 
     return redirect('index')
 
+from django.http import JsonResponse
+import json
 @login_required(login_url='login_page')
 def chatboat(request):
 
+    # POST request from frontend
+    if request.method == "POST":
+
+        data = json.loads(request.body)
+
+        message = data.get("message")
+        chat_id = data.get("chat_id")
+
+        reply = f"You said: {message}"
+
+        return JsonResponse({
+            "reply": reply,
+            "chat_id": 1
+        })
+
+    # GET request
     chats = Chat.objects.filter(
         user=request.user
     ).order_by('-created_at')

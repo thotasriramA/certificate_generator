@@ -256,3 +256,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 load_dotenv()
 
 GROK_API_KEY = os.getenv("GROK_API_KEY")
+
+print("DEBUG GROK_API_KEY:", GROK_API_KEY)

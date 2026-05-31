@@ -1,210 +1,570 @@
+{% load static %}
+
+<title>Login — MyProject</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --orange:#e07b39;
+  --orange-dark:#c96a2a;
+  --orange-light:#fdf0e8;
+  --blue-dark:#0f2a45;
+  --blue-mid:#1a6fb5;
+  --blue-soft:#5a8ab0;
+  --blue-pale:#caeaf8;
+  --blue-lightest:#f0f8fe;
+  --white:#ffffff;
+}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  min-height:100vh;
+  display:flex;
+  background:var(--blue-lightest);
+  overflow:hidden;
+}
+
+/* ── LEFT PANEL ── */
+
+.left-panel{
+  width:55%;
+  background:linear-gradient(160deg,#e8f5fd 0%,#d0eaf8 55%,#caeaf8 100%);
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:60px 70px;
+  overflow:hidden;
+}
+
+.left-panel::before{
+  content:'';
+  position:absolute;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  border:1.5px solid rgba(26,111,181,0.12);
+  top:-120px;
+  right:-120px;
+}
+
+.left-panel::after{
+  content:'';
+  position:absolute;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  border:1.5px solid rgba(26,111,181,0.12);
+  bottom:-80px;
+  left:-80px;
+}
+
+.left-deco-circle{
+  position:absolute;
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  border:1.5px solid rgba(26,111,181,0.1);
+  bottom:120px;
+  right:60px;
+}
+
+.panel-logo{
+  font-family:'Syne',sans-serif;
+  font-size:2rem;
+  font-weight:800;
+  color:#0f2a45;
+  text-decoration:none;
+  display:inline-block;
+  margin-bottom:50px;
+  position:relative;
+  z-index:2;
+}
+
+.panel-logo span{
+  color:var(--orange);
+}
+
+.panel-headline{
+  font-family:'Syne',sans-serif;
+  font-size:2.8rem;
+  font-weight:800;
+  color:#0f2a45;
+  line-height:1.2;
+  margin-bottom:18px;
+  position:relative;
+  z-index:2;
+}
+
+.panel-headline em{
+  font-style:normal;
+  color:var(--orange);
+}
+
+.panel-sub{
+  color:#4a7a9b;
+  font-size:1rem;
+  line-height:1.7;
+  margin-bottom:50px;
+  max-width:380px;
+  position:relative;
+  z-index:2;
+}
+
+.ticker-wrap{
+  position:relative;
+  z-index:2;
+  overflow:hidden;
+  mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,black 15%,black 85%,transparent);
+}
+
+.ticker-track{
+  display:flex;
+  gap:14px;
+  width:max-content;
+  animation:ticker 22s linear infinite;
+}
+
+.ticker-track:hover{
+  animation-play-state:paused;
+}
+
+@keyframes ticker{
+  0%{ transform:translateX(0); }
+  100%{ transform:translateX(-50%); }
+}
+
+.course-chip{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:white;
+  border:1px solid rgba(26,111,181,0.18);
+  backdrop-filter:blur(8px);
+  border-radius:50px;
+  padding:10px 20px;
+  white-space:nowrap;
+  color:#0f2a45;
+  font-size:0.88rem;
+  font-weight:500;
+  transition:background 0.3s;
+}
+
+.course-chip:hover{
+  background:#e8f5fd;
+}
+
+.course-chip .chip-icon{
+  font-size:1.1rem;
+}
+
+.stats-row{
+  display:flex;
+  gap:35px;
+  margin-top:40px;
+  position:relative;
+  z-index:2;
+}
+
+.stat{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.stat-num{
+  font-family:'Syne',sans-serif;
+  font-size:1.7rem;
+  font-weight:800;
+  color:#0f2a45;
+}
+
+.stat-label{
+  font-size:0.78rem;
+  color:#5a8ab0;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+}
+
+.stat-divider{
+  width:1px;
+  background:rgba(26,111,181,0.2);
+  align-self:stretch;
+}
+
+/* ── RIGHT PANEL ── */
+
+.right-panel{
+  width:45%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px;
+  background:linear-gradient(145deg,#eaf5fc 0%,#f0f8fe 60%,#e2f0fb 100%);
+  position:relative;
+}
+
+/* blob 1 — orange tint */
+.right-panel::before{
+  content:'';
+  position:absolute;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(224,123,57,0.08) 0%,transparent 65%);
+  top:-80px;
+  right:-80px;
+  pointer-events:none;
+}
+
+/* blob 2 — blue tint */
+.right-panel::after{
+  content:'';
+  position:absolute;
+  width:320px;
+  height:320px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(26,111,181,0.09) 0%,transparent 65%);
+  bottom:-60px;
+  left:-60px;
+  pointer-events:none;
+}
+
+/* ── GLASS CARD ── */
+
+.card{
+  width:100%;
+  max-width:400px;
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border-radius:28px;
+  padding:48px 44px;
+  box-shadow:
+    0 8px 32px rgba(26,111,181,0.10),
+    0 2px 8px rgba(26,111,181,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+  border:1px solid rgba(255,255,255,0.6);
+  position:relative;
+  overflow:hidden;
+  animation:cardIn 0.6s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+@keyframes cardIn{
+  from{ opacity:0; transform:translateY(30px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+/* orange top accent */
+.card::before{
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0;
+  height:4px;
+  background:linear-gradient(90deg,#c96a2a,#e07b39,#f5a868);
+}
+
+/* inner shimmer line */
+.card::after{
+  content:'';
+  position:absolute;
+  top:4px; left:0; right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.8),transparent);
+}
+
+.card-logo{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  font-family:'Syne',sans-serif;
+  font-size:1.5rem;
+  font-weight:800;
+  color:#2d2d2d;
+  margin-bottom:5px;
+}
+
+.card-logo span{
+  color:var(--orange);
+}
+
+.card-tagline{
+  text-align:center;
+  color:var(--orange);
+  font-size:0.78rem;
+  letter-spacing:0.05em;
+  margin-bottom:28px;
+}
+
+.card h2{
+  text-align:center;
+  color:var(--blue-dark);
+  font-size:1.4rem;
+  margin-bottom:6px;
+}
+
+.card-subtitle{
+  text-align:center;
+  color:var(--blue-soft);
+  font-size:0.88rem;
+  margin-bottom:28px;
+}
+
+.message{
+  background:#ffe7e7;
+  color:#c0392b;
+  padding:10px 14px;
+  border-radius:8px;
+  margin-bottom:16px;
+  font-size:0.85rem;
+  border-left:3px solid #e74c3c;
+}
+
+.input-group{
+  margin-bottom:16px;
+}
+
+.input-group label{
+  display:block;
+  margin-bottom:6px;
+  font-size:0.8rem;
+  font-weight:600;
+  color:var(--blue-dark);
+  letter-spacing:0.03em;
+}
+
+.input-group input{
+  width:100%;
+  padding:12px 16px;
+  border:1.5px solid #b8dff5;
+  border-radius:10px;
+  outline:none;
+  background:rgba(240,248,254,0.8);
+  font-family:'DM Sans',sans-serif;
+  font-size:0.95rem;
+  color:var(--blue-dark);
+  transition:border-color 0.25s, box-shadow 0.25s, background 0.25s;
+}
+
+.input-group input:focus{
+  border-color:var(--blue-mid);
+  background:rgba(255,255,255,0.95);
+  box-shadow:0 0 0 4px rgba(26,111,181,0.08), 0 2px 8px rgba(26,111,181,0.08);
+}
+
+.btn-login{
+  width:100%;
+  padding:13px;
+  border:none;
+  border-radius:10px;
+  background:linear-gradient(135deg,#e07b39 0%,#d06828 100%);
+  color:white;
+  font-family:'DM Sans',sans-serif;
+  font-size:1rem;
+  font-weight:700;
+  cursor:pointer;
+  margin-top:10px;
+  letter-spacing:0.02em;
+  transition:all 0.25s;
+  box-shadow:0 6px 20px rgba(224,123,57,0.35), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+.btn-login:hover{
+  background:linear-gradient(135deg,#d06828 0%,#b85820 100%);
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(224,123,57,0.45), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+.btn-login:active{
+  transform:translateY(0);
+}
+
+.divider{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:22px 0 16px;
+}
+
+.divider::before,
+.divider::after{
+  content:'';
+  flex:1;
+  height:1px;
+  background:#b8dff5;
+}
+
+.divider span{
+  font-size:0.8rem;
+  color:var(--blue-soft);
+  white-space:nowrap;
+}
+
+.signup-link{
+  text-align:center;
+  font-size:0.9rem;
+  color:#888;
+}
+
+.signup-link a{
+  color:var(--orange);
+  text-decoration:none;
+  font-weight:600;
+  transition:color 0.2s;
+}
+
+.forgot-inline{
+  font-size:0.78rem;
+  color:var(--blue-soft);
+  text-decoration:none;
+  font-weight:500;
+  transition:color 0.2s;
+}
+
+.forgot-inline:hover{
+  color:var(--orange);
+  text-decoration:underline;
+}
+
+.signup-link a:hover{
+  color:var(--orange-dark);
+  text-decoration:underline;
+}
+
+/* ── RESPONSIVE ── */
+
+@media(max-width:900px){
+
+  body{
+    flex-direction:column;
+    overflow:auto;
+  }
+
+  .left-panel{
+    width:100%;
+    padding:40px 30px 36px;
+  }
+
+  .panel-headline{
+    font-size:2rem;
+  }
+
+  .right-panel{
+    width:100%;
+    padding:30px 20px 50px;
+  }
+
+}
+
+</style>
 
 
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<div class="left-panel">
 
-  <style>
+  <div class="left-deco-circle"></div>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+  <a href="/" class="panel-logo">My<span>Project</span></a>
 
-    body{
-      font-family:'DM Sans',sans-serif;
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      background:linear-gradient(135deg,#e8f5fd 0%,#caeaf8 50%,#b8dff5 100%);
-      padding:20px;
-    }
+  <h1 class="panel-headline">
+    Learn. Build.<br>
+    <em>Get Certified.</em>
+  </h1>
 
-    .card{
-      width:100%;
-      max-width:420px;
-      background:white;
-      border-radius:24px;
-      padding:44px 40px;
-      box-shadow:0 20px 60px rgba(26,111,181,0.15);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .card::before{
-      content:'';
-      position:absolute;
-      top:0;
-      left:0;
-      right:0;
-      height:5px;
-      background:linear-gradient(90deg,#e07b39,#f0a070);
-    }
-
-    .logo{
-      display:block;
-      text-align:center;
-      text-decoration:none;
-      font-family:'Syne',sans-serif;
-      font-size:1.5rem;
-      font-weight:800;
-      color:#2d2d2d;
-      margin-bottom:6px;
-    }
-
-    .logo span{
-      color:#e07b39;
-    }
-
-    .tagline{
-      text-align:center;
-      color:#e07b39;
-      margin-bottom:28px;
-      font-size:0.8rem;
-    }
-
-    h2{
-      text-align:center;
-      margin-bottom:8px;
-      color:#0f2a45;
-    }
-
-    .subtitle{
-      text-align:center;
-      color:#5a8ab0;
-      margin-bottom:25px;
-      font-size:0.9rem;
-    }
-
-    .message{
-      background:#ffe7e7;
-      color:red;
-      padding:10px;
-      border-radius:8px;
-      margin-bottom:15px;
-      font-size:14px;
-    }
-
-    .input-group{
-      margin-bottom:16px;
-    }
-
-    .input-group label{
-      display:block;
-      margin-bottom:6px;
-      font-size:0.82rem;
-      font-weight:600;
-      color:#0f2a45;
-    }
-
-    .input-group input{
-      width:100%;
-      padding:12px 16px;
-      border:1.5px solid #b8dff5;
-      border-radius:10px;
-      outline:none;
-      background:#f4faff;
-      font-size:0.95rem;
-    }
-
-    .btn-login{
-      width:100%;
-      padding:13px;
-      border:none;
-      border-radius:10px;
-      background:#e07b39;
-      color:white;
-      font-size:1rem;
-      font-weight:700;
-      cursor:pointer;
-      margin-top:10px;
-    }
-
-    .btn-login:hover{
-      background:#c96a2a;
-    }
-
-    .divider{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin:22px 0;
-    }
-
-    .divider::before,
-    .divider::after{
-      content:'';
-      flex:1;
-      height:1px;
-      background:#b8dff5;
-    }
-
-    .signup-link{
-      text-align:center;
-      font-size:0.9rem;
-    }
-
-    .signup-link a{
-      color:#e07b39;
-      text-decoration:none;
-      font-weight:600;
-    }
-
-  </style>
-
-
-
-<div class="card">
-
-  <a href="/" class="logo">
-    My<span>Project</span>
-  </a>
-
-  <p class="tagline">
-    Complete Course. Get Certificate.
+  <p class="panel-sub">
+    Master in-demand tech skills with structured courses,
+    hands-on projects, and instant professional certificates —
+    completely free.
   </p>
 
-  <h2>Welcome Back 👋</h2>
-
-  <p class="subtitle">
-    Sign in to continue
-  </p>
-
-  {% for message in messages %}
-      <div class="message">
-          {{ message }}
-      </div>
-  {% endfor %}
-
-  <form method="POST">
-
-    {% csrf_token %}
-
-    <div class="input-group">
-      <label>Email Address</label>
-      <input type="email" name="email" placeholder="Enter your email" required>
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <div class="course-chip"><span class="chip-icon">💻</span> Full Stack Development</div>
+      <div class="course-chip"><span class="chip-icon">🔐</span> Cyber Security</div>
+      <div class="course-chip"><span class="chip-icon">📊</span> Data Science</div>
+      <div class="course-chip"><span class="chip-icon">☁️</span> Cloud Computing</div>
+      <div class="course-chip"><span class="chip-icon">🤖</span> AI / Machine Learning</div>
+      <div class="course-chip"><span class="chip-icon">📱</span> Mobile Development</div>
+      <div class="course-chip"><span class="chip-icon">🐍</span> Python & Django</div>
+      <div class="course-chip"><span class="chip-icon">💻</span> Full Stack Development</div>
+      <div class="course-chip"><span class="chip-icon">🔐</span> Cyber Security</div>
+      <div class="course-chip"><span class="chip-icon">📊</span> Data Science</div>
+      <div class="course-chip"><span class="chip-icon">☁️</span> Cloud Computing</div>
+      <div class="course-chip"><span class="chip-icon">🤖</span> AI / Machine Learning</div>
+      <div class="course-chip"><span class="chip-icon">📱</span> Mobile Development</div>
+      <div class="course-chip"><span class="chip-icon">🐍</span> Python & Django</div>
     </div>
-
-    <div class="input-group">
-      <label>Password</label>
-      <input type="password" name="password" placeholder="Enter password" required>
-    </div>
-
-    <button type="submit" class="btn-login">
-      Sign In
-    </button>
-
-  </form>
-
-  <div class="divider">
-    <span>don't have an account?</span>
   </div>
 
-  <div class="signup-link">
-    <a href="{% url 'signup' %}">
-      Create Account →
-    </a>
+  <div class="stats-row">
+    <div class="stat">
+      <span class="stat-num">10+</span>
+      <span class="stat-label">Courses</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">Free</span>
+      <span class="stat-label">Always</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">🏆</span>
+      <span class="stat-label">Certificates</span>
+    </div>
   </div>
 
 </div>
 
+
+<div class="right-panel">
+
+  <div class="card">
+
+    <a href="/" class="card-logo">My<span>Project</span></a>
+    <p class="card-tagline">Complete Course. Get Certificate.</p>
+
+    <h2>Welcome Back 👋</h2>
+    <p class="card-subtitle">Sign in to continue learning</p>
+
+    {% for message in messages %}
+      <div class="message">{{ message }}</div>
+    {% endfor %}
+
+    <form method="POST">
+
+      {% csrf_token %}
+
+      <div class="input-group">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="input-group">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+          <label style="margin-bottom:0;">Password</label>
+          <a  class="forgot-inline">Forgot password?</a>
+        </div>
+        <input type="password" name="password" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit" class="btn-login">Sign In →</button>
+
+    </form>
+
+    <div class="divider"><span>don't have an account?</span></div>
+
+    <div class="signup-link">
+      <a href="{% url 'signup' %}">Create Free Account →</a>
+    </div>
+
+  </div>
+
+</div>

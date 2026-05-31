@@ -21,52 +21,41 @@ body{
 /* ANIMATIONS */
 
 @keyframes fadeUp{
-
-    from{
-        opacity:0;
-        transform:translateY(60px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
+    from{ opacity:0; transform:translateY(60px); }
+    to{ opacity:1; transform:translateY(0); }
 }
 
 @keyframes float{
-
-    0%{
-        transform:translateY(0px);
-    }
-
-    50%{
-        transform:translateY(-15px);
-    }
-
-    100%{
-        transform:translateY(0px);
-    }
-
+    0%{ transform:translateY(0px); }
+    50%{ transform:translateY(-15px); }
+    100%{ transform:translateY(0px); }
 }
 
 @keyframes glow{
-
-    0%{
-        box-shadow:0 0 0px #2196f3;
-    }
-
-    50%{
-        box-shadow:0 0 35px rgba(33,150,243,0.5);
-    }
-
-    100%{
-        box-shadow:0 0 0px #2196f3;
-    }
-
+    0%{ box-shadow:0 0 0px #2196f3; }
+    50%{ box-shadow:0 0 35px rgba(33,150,243,0.5); }
+    100%{ box-shadow:0 0 0px #2196f3; }
 }
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:rgba(220,236,248,0.95);
+    backdrop-filter:blur(10px);
+    padding:18px 90px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    border-bottom:1px solid rgba(33,150,243,0.15);
+}
+
 .logo h1{
-    font-size:48px;
+    font-size:32px;
     color:#ff7b2c;
 }
 
@@ -76,68 +65,80 @@ body{
 
 .logo p{
     color:#ff7b2c;
-    font-size:14px;
-    margin-top:3px;
+    font-size:13px;
+    margin-top:2px;
 }
 
-/* BUTTONS */
-
-
+.nav-buttons{
+    display:flex;
+    gap:14px;
+    align-items:center;
+}
 
 .login-btn{
-
-    color:#0f172a;
-    border:2px solid #0f172a;
-
+    background:linear-gradient(135deg,#2196f3,#42a5f5);
+    color:white;
+    border:none;
+    padding:12px 28px;
+    border-radius:12px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    text-decoration:none;
+    box-shadow:0 6px 18px rgba(33,150,243,0.25);
 }
 
 .login-btn:hover{
-
     background:#0f172a;
+    transform:translateY(-3px) scale(1.03);
+    box-shadow:0 10px 22px rgba(15,23,42,0.25);
     color:white;
-
 }
 
 .signup-btn{
-
-    background:#2196f3;
+    background:#0f172a;
     color:white;
-
+    border:2px solid transparent;
+    padding:12px 28px;
+    border-radius:12px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    text-decoration:none;
+    box-shadow:0 6px 18px rgba(15,23,42,0.2);
 }
 
 .signup-btn:hover{
-
-    transform:scale(1.05);
-
+    background:white;
+    color:#2196f3;
+    border:2px solid #2196f3;
+    transform:translateY(-3px) scale(1.03);
+    box-shadow:0 10px 22px rgba(33,150,243,0.2);
 }
 
 /* HERO */
 
 .hero{
-
     width:100%;
     min-height:100vh;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:170px 90px 100px;
+    padding:150px 90px 100px;
     gap:80px;
-
 }
 
 .hero-left{
-
     width:55%;
     animation:fadeUp 1s ease;
-
 }
 
 .hero-left h1{
-
-    font-size:95px;
-    line-height:110px;
+    font-size:80px;
+    line-height:95px;
     margin-bottom:30px;
-
 }
 
 .hero-left span{
@@ -145,130 +146,140 @@ body{
 }
 
 .hero-left p{
-
-    font-size:24px;
-    line-height:42px;
+    font-size:22px;
+    line-height:40px;
     color:#475569;
     margin-bottom:50px;
-
 }
 
 .hero-buttons{
-
     display:flex;
     gap:25px;
-
 }
 
 .hero-buttons a{
-
     text-decoration:none;
-    padding:18px 38px;
+    padding:16px 36px;
     border-radius:14px;
     font-size:18px;
     font-weight:bold;
     transition:0.3s;
-
 }
 
 .start-btn{
-
     background:#2196f3;
     color:white;
     animation:glow 3s infinite;
-
 }
 
 .start-btn:hover{
-
     transform:translateY(-5px);
-
 }
 
 .course-btn{
-
     background:white;
     color:#0f172a;
     border:2px solid #2196f3;
-
 }
 
 .course-btn:hover{
-
     background:#2196f3;
     color:white;
-
 }
 
 /* LOGIN CARD */
 
 .hero-right{
-
     width:45%;
     display:flex;
     justify-content:center;
     animation:fadeUp 1.2s ease;
-
 }
 
+.login-card{
+    background:white;
+    padding:50px 45px;
+    border-radius:30px;
+    width:100%;
+    max-width:460px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.1);
+}
 
+.login-card h2{
+    font-size:28px;
+    margin-bottom:8px;
+    color:#0f172a;
+}
 
-
+.login-card .subtitle{
+    color:#64748b;
+    font-size:15px;
+    margin-bottom:32px;
+}
 
 .input-box{
+    margin-bottom:20px;
+}
 
-    margin-bottom:22px;
-
+.input-box label{
+    display:block;
+    font-size:14px;
+    font-weight:bold;
+    color:#475569;
+    margin-bottom:8px;
 }
 
 .input-box input{
-
     width:100%;
-    padding:18px;
-    border:none;
+    padding:16px 18px;
+    border:2px solid #e2e8f0;
     outline:none;
     border-radius:14px;
-    background:#eef5fb;
-    font-size:17px;
+    background:#f8fafc;
+    font-size:16px;
+    transition:0.3s;
+}
 
+.input-box input:focus{
+    border-color:#2196f3;
+    background:white;
 }
 
 .login-submit{
-
     width:100%;
-    padding:18px;
+    padding:17px;
     border:none;
     border-radius:14px;
     background:#2196f3;
     color:white;
-    font-size:18px;
+    font-size:17px;
     font-weight:bold;
     cursor:pointer;
     transition:0.3s;
-    margin-top:10px;
-
+    margin-top:8px;
 }
 
 .login-submit:hover{
-
     transform:translateY(-4px);
-
+    background:#1976d2;
+    box-shadow:0 10px 25px rgba(33,150,243,0.35);
 }
 
 .signup-text{
-
     text-align:center;
-    margin-top:25px;
+    margin-top:22px;
     color:#64748b;
-
+    font-size:15px;
 }
 
 .signup-text a{
-
     color:#2196f3;
     text-decoration:none;
     font-weight:bold;
+}
 
+.signup-text a:hover{
+    text-decoration:underline;
 }
 
 /* SECTION COMMON */
@@ -278,180 +289,145 @@ section{
 }
 
 .section-title{
-
     text-align:center;
-    font-size:60px;
-    margin-bottom:80px;
-
+    font-size:55px;
+    margin-bottom:70px;
 }
 
 /* FEATURES */
 
 .features{
-
-    padding:120px 90px;
-
+    padding:110px 90px;
 }
 
 .feature-boxes{
-
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:35px;
-
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
 }
 
 .feature{
-
     background:white;
     padding:45px;
-    border-radius:30px;
+    border-radius:28px;
     text-align:center;
     transition:0.4s;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-
+    box-shadow:0 10px 25px rgba(0,0,0,0.07);
 }
 
 .feature:hover{
-
-    transform:translateY(-15px) scale(1.03);
-
+    transform:translateY(-14px) scale(1.02);
 }
 
 .feature-icon{
-    font-size:55px;
+    font-size:52px;
 }
 
 .feature h2{
-
-    margin:25px 0;
+    margin:22px 0 14px;
     color:#2196f3;
-    font-size:30px;
-
+    font-size:26px;
 }
 
 .feature p{
-
     color:#475569;
-    line-height:34px;
-    font-size:18px;
-
+    line-height:32px;
+    font-size:17px;
 }
 
 /* COURSES */
 
 .courses{
-
-    padding:100px 90px;
-
+    padding:90px 90px;
 }
 
 .course-container{
-
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:35px;
-
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
 }
 
 .course-card{
-
     background:white;
-    padding:40px;
-    border-radius:30px;
+    padding:38px;
+    border-radius:28px;
     transition:0.4s;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-
+    box-shadow:0 10px 25px rgba(0,0,0,0.07);
+    border-top:4px solid #2196f3;
 }
 
 .course-card:hover{
-
-    transform:translateY(-15px);
-
+    transform:translateY(-14px);
 }
 
 .course-card h2{
-
     color:#2196f3;
-    margin-bottom:20px;
-    font-size:30px;
-
+    margin-bottom:16px;
+    font-size:26px;
 }
 
 .course-card p{
-
-    line-height:34px;
+    line-height:32px;
     color:#475569;
-    font-size:18px;
-
+    font-size:17px;
 }
 
 .lock{
-
-    margin-top:25px;
+    margin-top:22px;
     display:inline-block;
     background:#0f172a;
     color:white;
-    padding:12px 22px;
+    padding:11px 20px;
     border-radius:12px;
-    font-size:15px;
-
+    font-size:14px;
 }
 
 /* STEPS */
 
 .steps{
-
-    padding:120px 90px;
-
+    padding:110px 90px;
 }
 
 .step-container{
-
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:35px;
-
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:30px;
 }
 
 .step{
-
     background:white;
     padding:45px;
-    border-radius:30px;
+    border-radius:28px;
     text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    box-shadow:0 10px 25px rgba(0,0,0,0.07);
+    transition:0.3s;
+}
 
+.step:hover{
+    transform:translateY(-8px);
 }
 
 .step h2{
-
-    margin:25px 0;
+    margin:22px 0 14px;
     color:#2196f3;
-    font-size:30px;
-
+    font-size:26px;
 }
 
 .step p{
-
     color:#475569;
-    line-height:34px;
-    font-size:18px;
-
+    line-height:32px;
+    font-size:17px;
 }
 
 /* CREATOR */
 
 .creator{
-
-    padding:120px 90px;
+    padding:110px 90px;
     display:flex;
     justify-content:center;
-
 }
 
 .creator-card{
-
     width:1100px;
     background:white;
     border-radius:35px;
@@ -459,130 +435,90 @@ section{
     display:flex;
     align-items:center;
     gap:60px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.08);
-
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
 }
 
 .creator-card img{
-
-    width:300px;
-    height:350px;
-    border-radius:30px;
+    width:280px;
+    height:340px;
+    border-radius:28px;
     object-fit:cover;
-
+    flex-shrink:0;
 }
 
 .creator-info h1{
-
-    font-size:55px;
-    margin-bottom:25px;
-
+    font-size:48px;
+    margin-bottom:22px;
 }
 
 .creator-info p{
-
-    font-size:21px;
-    line-height:40px;
+    font-size:19px;
+    line-height:38px;
     color:#475569;
-    margin-bottom:18px;
-
+    margin-bottom:16px;
 }
 
 .contact{
-
-    margin-top:25px;
-
+    margin-top:22px;
+    background:#f8fafc;
+    padding:20px 24px;
+    border-radius:16px;
+    border-left:4px solid #2196f3;
 }
 
 .contact p{
+    margin-bottom:8px;
+    font-size:17px;
+    color:#475569;
+}
 
-    margin-bottom:10px;
-
+.contact p b{
+    color:#0f172a;
 }
 
 /* FOOTER */
 
 footer{
-
     background:#0f172a;
     color:white;
     text-align:center;
-    padding:50px;
+    padding:55px 50px;
     margin-top:80px;
-
 }
 
 footer h2{
-
-    font-size:40px;
-    margin-bottom:20px;
-
+    font-size:38px;
+    margin-bottom:18px;
+    color:#ff7b2c;
 }
 
 footer p{
-
     color:#cbd5e1;
-    margin-bottom:10px;
-    font-size:18px;
-
-}
-.login-btn {
-
-    background: linear-gradient(135deg, #2196f3, #42a5f5);
-    color: white;
-    border: none;
-    padding: 14px 30px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    box-shadow: 0 8px 20px rgba(33, 150, 243, 0.25);
-
+    margin-bottom:8px;
+    font-size:17px;
 }
 
-.login-btn:hover {
-
-    background: #0f172a;
-    transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 12px 25px rgba(15, 23, 42, 0.25);
-
-}
-
-.signup-btn {
-
-    background: #0f172a;
-    color: white;
-    border: 2px solid transparent;
-    padding: 14px 30px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
-
-}
-
-.signup-btn:hover {
-
-    background: white;
-    color: #2196f3;
-    border: 2px solid #2196f3;
-    transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 12px 25px rgba(33, 150, 243, 0.2);
-
+footer .footer-divider{
+    width:80px;
+    height:3px;
+    background:#2196f3;
+    margin:20px auto;
+    border-radius:2px;
 }
 
 /* RESPONSIVE */
 
 @media(max-width:1000px){
 
+    nav{
+        padding:16px 30px;
+    }
+
     .hero{
         flex-direction:column;
+        padding:140px 30px 80px;
         text-align:center;
+        gap:50px;
     }
 
     .hero-left,
@@ -591,13 +527,58 @@ footer p{
     }
 
     .hero-left h1{
-        font-size:65px;
-        line-height:80px;
+        font-size:55px;
+        line-height:68px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .features,
+    .courses,
+    .steps,
+    .creator{
+        padding:80px 30px;
     }
 
     .creator-card{
         flex-direction:column;
         text-align:center;
+        width:100%;
+    }
+
+    .creator-card img{
+        width:220px;
+        height:260px;
+    }
+
+    .section-title{
+        font-size:40px;
+        margin-bottom:50px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .logo h1{
+        font-size:24px;
+    }
+
+    .nav-buttons{
+        gap:10px;
+    }
+
+    .login-btn,
+    .signup-btn{
+        padding:10px 18px;
+        font-size:13px;
+    }
+
+    .hero-left h1{
+        font-size:42px;
+        line-height:55px;
     }
 
 }
@@ -605,50 +586,45 @@ footer p{
 </style>
 
 
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">
+        <h1>My<span>Project</span></h1>
+        <p>Learn • Grow • Succeed</p>
+    </div>
+    <div class="nav-buttons">
+        <a href="/login_page/" class="login-btn">Login</a>
+        <a href="/signup/" class="signup-btn">Sign Up</a>
+    </div>
+</nav>
+
+
+<!-- HERO -->
 <section class="hero">
 
     <div class="hero-left">
-
         <h1>
-
             Complete Courses <br>
-
             <span>Generate Certificates</span> <br>
-
             Build Your Career
-
         </h1>
-
         <p>
-
             Learn Full Stack Development, Cyber Security,
             Data Science, AI/ML, Cloud Computing and more.
             Complete professional courses and instantly
             generate beautiful certificates.
-
         </p>
-
         <div class="hero-buttons">
-
-            <a href="/login_page/" class="start-btn">Start Learning</a>
-
-            <a href="/login_page/" class="course-btn">Login To View Courses</a>
-
+            <a href="/signup/" class="start-btn">Start Learning</a>
+            <a href="/signup/" class="course-btn">View Courses</a>
         </div>
-
-    </div>
-        <div class = "login-system" style = "padding-right: 20px; gap:10px;">
-            
-            <button href="/login/" class = "login-btn" >Login</button>
-            <button href="/signup/" class = "signup-btn" >Sign Up</button>
-            
-        </div>
-
-
     </div>
 
+    
 </section>
 
+
+<!-- FEATURES -->
 <section class="features">
 
     <h1 class="section-title">Platform Features</h1>
@@ -656,69 +632,35 @@ footer p{
     <div class="feature-boxes">
 
         <div class="feature">
-
             <div class="feature-icon">📚</div>
-
             <h2>Professional Courses</h2>
-
-            <p>
-
-                Learn industry level technology courses
-                completely free with structured learning.
-
-            </p>
-
+            <p>Learn industry level technology courses completely free with structured learning.</p>
         </div>
 
         <div class="feature">
-
             <div class="feature-icon">🏆</div>
-
             <h2>Certificate Generator</h2>
-
-            <p>
-
-                Generate professional certificates after
-                successfully completing your courses.
-
-            </p>
-
+            <p>Generate professional certificates after successfully completing your courses.</p>
         </div>
 
         <div class="feature">
-
             <div class="feature-icon">🧠</div>
-
             <h2>Practice & Projects</h2>
-
-            <p>
-
-                Improve your skills with practical examples,
-                mini projects and real world tasks.
-
-            </p>
-
+            <p>Improve your skills with practical examples, mini projects and real world tasks.</p>
         </div>
 
         <div class="feature">
-
             <div class="feature-icon">🚀</div>
-
             <h2>Career Roadmaps</h2>
-
-            <p>
-
-                Follow complete developer roadmaps
-                to become job ready step-by-step.
-
-            </p>
-
+            <p>Follow complete developer roadmaps to become job ready step-by-step.</p>
         </div>
 
     </div>
 
 </section>
 
+
+<!-- COURSES -->
 <section class="courses">
 
     <h1 class="section-title">Popular Courses</h1>
@@ -726,85 +668,35 @@ footer p{
     <div class="course-container">
 
         <div class="course-card">
-
             <h2>Full Stack Development</h2>
-
-            <p>
-
-                Learn HTML, CSS, JavaScript,
-                Python, Django and React.
-
-            </p>
-
-            <div class="lock">
-
-                🔒 Login Required
-
-            </div>
-
+            <p>Learn HTML, CSS, JavaScript, Python, Django and React.</p>
+            <div class="lock">🔒 Login Required</div>
         </div>
 
         <div class="course-card">
-
             <h2>Cyber Security</h2>
-
-            <p>
-
-                Learn ethical hacking, networking,
-                penetration testing and security.
-
-            </p>
-
-            <div class="lock">
-
-                🔒 Login Required
-
-            </div>
-
+            <p>Learn ethical hacking, networking, penetration testing and security.</p>
+            <div class="lock">🔒 Login Required</div>
         </div>
 
         <div class="course-card">
-
             <h2>Data Science</h2>
-
-            <p>
-
-                Learn Machine Learning, Python,
-                Pandas and Data Analytics.
-
-            </p>
-
-            <div class="lock">
-
-                🔒 Login Required
-
-            </div>
-
+            <p>Learn Machine Learning, Python, Pandas and Data Analytics.</p>
+            <div class="lock">🔒 Login Required</div>
         </div>
 
         <div class="course-card">
-
             <h2>Cloud Computing</h2>
-
-            <p>
-
-                Learn AWS, Azure, DevOps
-                and cloud technologies.
-
-            </p>
-
-            <div class="lock">
-
-                🔒 Login Required
-
-            </div>
-
+            <p>Learn AWS, Azure, DevOps and cloud technologies.</p>
+            <div class="lock">🔒 Login Required</div>
         </div>
 
     </div>
 
 </section>
 
+
+<!-- HOW IT WORKS -->
 <section class="steps">
 
     <h1 class="section-title">How It Works</h1>
@@ -812,48 +704,26 @@ footer p{
     <div class="step-container">
 
         <div class="step">
-
             <h2>1️⃣ Create Account</h2>
-
-            <p>
-
-                Create your free account using
-                email and password.
-
-            </p>
-
+            <p>Create your free account using email and password in just seconds.</p>
         </div>
 
         <div class="step">
-
             <h2>2️⃣ Learn Courses</h2>
-
-            <p>
-
-                Complete your selected course
-                and improve your skills.
-
-            </p>
-
+            <p>Complete your selected course and improve your skills at your own pace.</p>
         </div>
 
         <div class="step">
-
-            <h2>3️⃣ Generate Certificate</h2>
-
-            <p>
-
-                Download your professional
-                certificate instantly.
-
-            </p>
-
+            <h2>3️⃣ Get Certificate</h2>
+            <p>Download your professional certificate instantly after completion.</p>
         </div>
 
     </div>
 
 </section>
 
+
+<!-- CREATOR -->
 <section class="creator">
 
     <div class="creator-card">
@@ -865,42 +735,26 @@ footer p{
             <h1>Founder & Creator</h1>
 
             <p>
-
-                Hi, I'm <b>Sriram</b>, a passionate
-                B.Tech Cyber Security student and
-                full stack developer.
-
+                Hi, I'm <b>Sriram</b>, a passionate B.Tech Cyber Security student
+                and full stack developer.
             </p>
 
             <p>
-
-                I created MyProject to help students
-                learn professional technology skills,
-                complete courses and generate certificates
-                completely free.
-
+                I created MyProject to help students learn professional technology skills,
+                complete courses and generate certificates completely free.
             </p>
 
             <p>
-
-                This platform is specially designed for
-                students who want to improve their skills,
+                This platform is specially designed for students who want to improve their skills,
                 build projects and become job ready.
-
             </p>
 
             <div class="contact">
-
                 <p><b>Email:</b> sriram@example.com</p>
-
                 <p><b>Phone:</b> +91 9876543210</p>
-
                 <p><b>College:</b> St. Ann's College of Engineering & Technology</p>
-
                 <p><b>Department:</b> Cyber Security</p>
-
                 <p><b>Skills:</b> HTML, CSS, JavaScript, Python, Django, AI Tools</p>
-
             </div>
 
         </div>
@@ -909,13 +763,11 @@ footer p{
 
 </section>
 
+
+<!-- FOOTER -->
 <footer>
-
     <h2>MyProject</h2>
-
+    <div class="footer-divider"></div>
     <p>Learn Skills • Complete Courses • Generate Certificates</p>
-
     <p>© 2026 MyProject | Designed By Sriram</p>
-
 </footer>
-

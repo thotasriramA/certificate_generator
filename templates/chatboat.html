@@ -1,391 +1,389 @@
-{% include 'header.html' %}
+    {% include 'header.html' %}
 
-<style>
+    <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial,sans-serif;
+    }
 
-body{
-    background:#dcecf8;
-    height:100vh;
-    overflow:hidden;
-}
+    body{
+        background:#dcecf8;
+        height:100vh;
+        overflow:hidden;
+    }
 
-.main{
-    width:100%;
-    height:100vh;
-    display:flex;
-}
+    .main{
+        width:100%;
+        height:100vh;
+        display:flex;
+    }
 
-/* SIDEBAR */
+    /* SIDEBAR */
 
-.sidebar{
-    width:280px;
-    background:#0f172a;
-    color:white;
-    padding:20px;
-    display:flex;
-    flex-direction:column;
-}
+    .sidebar{
+        width:280px;
+        background:#0f172a;
+        color:white;
+        padding:20px;
+        display:flex;
+        flex-direction:column;
+    }
 
-.logo{
-    margin-bottom:30px;
-}
+    .logo{
+        margin-bottom:30px;
+    }
 
-.logo h1{
-    font-size:36px;
-    color:#2196f3;
-}
+    .logo h1{
+        font-size:36px;
+        color:#2196f3;
+    }
 
-.logo span{
-    color:white;
-}
+    .logo span{
+        color:white;
+    }
 
-.new-chat{
-    width:100%;
-    padding:15px;
-    border:none;
-    border-radius:12px;
-    background:#2196f3;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    margin-bottom:25px;
-}
+    .new-chat{
+        width:100%;
+        padding:15px;
+        border:none;
+        border-radius:12px;
+        background:#2196f3;
+        color:white;
+        font-size:16px;
+        font-weight:bold;
+        cursor:pointer;
+        margin-bottom:25px;
+    }
 
-.chat-history{
-    flex:1;
-    overflow-y:auto;
-}
+    .chat-history{
+        flex:1;
+        overflow-y:auto;
+    }
 
-.chat-item{
-    background:#1e293b;
-    padding:15px;
-    border-radius:12px;
-    margin-bottom:12px;
-    cursor:pointer;
-    transition:0.3s;
-}
+    .chat-item{
+        background:#1e293b;
+        padding:15px;
+        border-radius:12px;
+        margin-bottom:12px;
+        cursor:pointer;
+        transition:0.3s;
+    }
 
-.chat-item:hover{
-    background:#334155;
-}
-
-
-/* CHAT AREA */
-
-.chat-area{
-    flex:1;
-    display:flex;
-    flex-direction:column;
-    height:100vh;
-}
-
-.topbar{
-    width:100%;
-    height:80px;
-    background:white;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 40px;
-}
-
-.topbar h2{
-    color:#0f172a;
-}
+    .chat-item:hover{
+        background:#334155;
+    }
 
 
-/* MESSAGES */
+    /* CHAT AREA */
 
-.messages{
-    flex:1;
-    padding:30px;
-    overflow-y:auto;
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-    height:calc(100vh - 160px);
-}
+    .chat-area{
+        flex:1;
+        display:flex;
+        flex-direction:column;
+        height:100vh;
+    }
 
-.message{
-    max-width:70%;
-    padding:18px 22px;
-    border-radius:18px;
-    line-height:30px;
-    font-size:17px;
-    word-wrap:break-word;
-}
+    .topbar{
+        width:100%;
+        height:80px;
+        background:white;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:0 40px;
+    }
 
-.user{
-    background:#2196f3;
-    color:white;
-    align-self:flex-end;
-}
-
-.bot{
-    background:white;
-    color:#0f172a;
-    align-self:flex-start;
-}
+    .topbar h2{
+        color:#0f172a;
+    }
 
 
-/* INPUT AREA */
+    /* MESSAGES */
 
-.input-area{
-    width:100%;
-    padding:20px;
-    background:white;
-    display:flex;
-    gap:15px;
-    position:sticky;
-    bottom:0;
-}
+    .messages{
+        flex:1;
+        padding:30px;
+        overflow-y:auto;
+        display:flex;
+        flex-direction:column;
+        gap:20px;
+        height:calc(100vh - 160px);
+    }
 
-.input-area input{
-    flex:1;
-    padding:18px;
-    border:none;
-    outline:none;
-    background:#eef5fb;
-    border-radius:14px;
-    font-size:17px;
-}
+    .message{
+        max-width:70%;
+        padding:18px 22px;
+        border-radius:18px;
+        line-height:30px;
+        font-size:17px;
+        word-wrap:break-word;
+    }
 
-.send-btn{
-    padding:18px 28px;
-    border:none;
-    border-radius:14px;
-    background:#2196f3;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-}
+    .user{
+        background:#2196f3;
+        color:white;
+        align-self:flex-end;
+    }
 
-.send-btn:hover{
-    background:#0f172a;
-}
-
-</style>
+    .bot{
+        background:white;
+        color:#0f172a;
+        align-self:flex-start;
+    }
 
 
+    /* INPUT AREA */
 
-<div class="main">
+    .input-area{
+        width:100%;
+        padding:20px;
+        background:white;
+        display:flex;
+        gap:15px;
+        position:sticky;
+        bottom:0;
+    }
 
-    <!-- SIDEBAR -->
+    .input-area input{
+        flex:1;
+        padding:18px;
+        border:none;
+        outline:none;
+        background:#eef5fb;
+        border-radius:14px;
+        font-size:17px;
+    }
 
-    <div class="sidebar">
+    .send-btn{
+        padding:18px 28px;
+        border:none;
+        border-radius:14px;
+        background:#2196f3;
+        color:white;
+        font-size:16px;
+        font-weight:bold;
+        cursor:pointer;
+    }
 
-        <div class="logo">
-            <h1><span>My</span>Project AI</h1>
-        </div>
+    .send-btn:hover{
+        background:#0f172a;
+    }
 
-        <button class="new-chat" onclick="newChat()">
-            + New Chat
-        </button>
+    </style>
 
-        <div class="chat-history" id="chatHistory">
 
-            {% for chat in chats %}
 
-            <div class="chat-item">
+    <div class="main">
 
-                {{ chat.title }}
+        <!-- SIDEBAR -->
 
+        <div class="sidebar">
+
+            <div class="logo">
+                <h1><span>My</span>Project AI</h1>
             </div>
 
-            {% endfor %}
-
-        </div>
-
-    </div>
-
-
-
-    <!-- CHAT AREA -->
-
-    <div class="chat-area">
-
-        <!-- TOPBAR -->
-
-        <div class="topbar">
-
-            <h2>MyProject AI Assistant</h2>
-
-        </div>
-
-
-        <!-- MESSAGES -->
-
-        <div class="messages" id="messages">
-
-            <div class="message bot">
-                👋 Hello {{ request.user.first_name }}! Ask anything.
-            </div>
-
-        </div>
-
-
-
-        <!-- INPUT -->
-
-        <div class="input-area">
-
-            <input
-                type="text"
-                id="userInput"
-                placeholder="Ask anything..."
-            >
-
-            <button class="send-btn" onclick="sendMessage()">
-                Send
+            <button class="new-chat" onclick="newChat()">
+                + New Chat
             </button>
 
+            <div class="chat-history" id="chatHistory">
+
+                {% for chat in chats %}
+
+                <div class="chat-item">
+
+                    {{ chat.title }}
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CHAT AREA -->
+
+        <div class="chat-area">
+
+            <!-- TOPBAR -->
+
+            <div class="topbar">
+
+                <h2>MyProject AI Assistant</h2>
+
+            </div>
+
+
+            <!-- MESSAGES -->
+
+            <div class="messages" id="messages">
+
+                <div class="message bot">
+                    👋 Hello {{ request.user.first_name }}! Ask anything.
+                </div>
+
+            </div>
+
+
+
+            <!-- INPUT -->
+
+            <div class="input-area">
+
+                <input
+                    type="text"
+                    id="userInput"
+                    placeholder="Ask anything..."
+                >
+
+                <button class="send-btn" onclick="sendMessage()">
+                    Send
+                </button>
+
+            </div>
+
         </div>
 
     </div>
 
-</div>
+
+
+    <script>
+
+    const messages = document.getElementById("messages");
+
+    const userInput = document.getElementById("userInput");
+
+    const chatHistory = document.getElementById("chatHistory");
+
+    let currentChatId = null;
 
 
 
-<script>
+    // ADD MESSAGE
 
-const messages = document.getElementById("messages");
+    function addMessage(text, type){
 
-const userInput = document.getElementById("userInput");
+        const div = document.createElement("div");
 
-const chatHistory = document.getElementById("chatHistory");
+        div.classList.add("message");
 
-let currentChatId = null;
+        div.classList.add(type);
 
+        div.innerHTML = text;
 
+        messages.appendChild(div);
 
-// ADD MESSAGE
-
-function addMessage(text, type){
-
-    const div = document.createElement("div");
-
-    div.classList.add("message");
-
-    div.classList.add(type);
-
-    div.innerHTML = text;
-
-    messages.appendChild(div);
-
-    messages.scrollTop = messages.scrollHeight;
-
-}
-
-
-
-// SEND MESSAGE
-
-async function sendMessage(){
-
-    const text = userInput.value.trim();
-
-    if(text === ""){
-        return;
-    }
-
-    addMessage(text, "user");
-
-    userInput.value = "";
-
-    try{
-
-        const response = await fetch('/chatbot/', {
-
-            method:'POST',
-
-            headers:{
-                'Content-Type':'application/json'
-            },
-
-            body:JSON.stringify({
-                message:text,
-                chat_id:currentChatId
-            })
-
-        });
-
-        const data = await response.json();
-
-        currentChatId = data.chat_id;
-
-        addMessage(data.reply, "bot");
-
-        saveChatHistory(text);
+        messages.scrollTop = messages.scrollHeight;
 
     }
 
-    catch(error){
-
-        addMessage("Error connecting chatbot", "bot");
-
-    }
-
-}
 
 
+    // SEND MESSAGE
 
-// SAVE CHAT HISTORY
+    async function sendMessage(){
 
-function saveChatHistory(text){
+        const text = userInput.value.trim();
 
-    if(currentChatId !== null){
-        return;
-    }
+        if(text === ""){
+            return;
+        }
 
-    const item = document.createElement("div");
+        addMessage(text, "user");
 
-    item.classList.add("chat-item");
+        userInput.value = "";
 
-    item.innerHTML = text.substring(0, 25);
+        try{
 
-    chatHistory.prepend(item);
+            const response = await fetch('/chatbot/', {
 
-}
+                method:'POST',
 
+                headers:{
+                    'Content-Type':'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
 
+                body:JSON.stringify({
+                    message:text,
+                    chat_id:currentChatId
+                })
 
-// NEW CHAT
+            });
 
-function newChat(){
+            const data = await response.json();
 
-    currentChatId = null;
+            currentChatId = data.chat_id;
 
-    messages.innerHTML = `
+            addMessage(data.reply, "bot");
 
-        <div class="message bot">
-            👋 New chat started. Ask me anything.
-        </div>
+            saveChatHistory(text);
 
-    `;
+        }
 
-}
+        catch(error){
 
+            addMessage("Error connecting chatbot", "bot");
 
-
-// ENTER KEY
-
-userInput.addEventListener("keypress", function(e){
-
-    if(e.key === "Enter"){
-
-        sendMessage();
+        }
 
     }
 
-});
 
-</script>
+
+    // SAVE CHAT HISTORY
+
+    function saveChatHistory(text){
+
+        if(currentChatId !== null){
+            return;
+        }
+
+        const item = document.createElement("div");
+
+        item.classList.add("chat-item");
+
+        item.innerHTML = text.substring(0, 25);
+
+        chatHistory.prepend(item);
+
+    }
+    // NEW CHAT
+
+    function newChat(){
+
+        currentChatId = null;
+
+        messages.innerHTML = `
+
+            <div class="message bot">
+                👋 New chat started. Ask me anything.
+            </div>
+
+        `;
+
+    }
+
+
+
+    // ENTER KEY
+
+    userInput.addEventListener("keypress", function(e){
+
+        if(e.key === "Enter"){
+
+            sendMessage();
+
+        }
+
+    });
+
+    </script>

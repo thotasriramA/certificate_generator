@@ -32,6 +32,63 @@ nav a.active { background: lightblue; color: black; font-weight: 600; }
 .signin:hover { background: rgba(30,167,255,0.15); color: #1ea7ff; }
 .signup { text-decoration: none; font-size: 1rem; padding: 10px 22px; border-radius: 25px; background: linear-gradient(135deg,#1ea7ff,#4facfe); color: white; font-weight: 600; }
 .signup:hover { transform: translateY(-2px); }
+
+/* VOICE BUTTON */
+#voiceBtn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 99999;
+  padding: 12px 22px;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(231,76,60,0.4);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#voiceBtn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(231,76,60,0.5); }
+#voiceBtn.active {
+  background: linear-gradient(135deg, #27ae60, #1e8449);
+  box-shadow: 0 6px 20px rgba(39,174,96,0.5);
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(39,174,96,0.6); }
+  70%  { box-shadow: 0 0 0 12px rgba(39,174,96,0); }
+  100% { box-shadow: 0 0 0 0 rgba(39,174,96,0); }
+}
+
+/* VOICE TOAST NOTIFICATION */
+#voiceToast {
+  position: fixed;
+  bottom: 90px;
+  right: 28px;
+  z-index: 99999;
+  background: #1c2b3a;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  max-width: 260px;
+  text-align: center;
+}
+#voiceToast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 </style>
 
 <!-- HEADER -->
@@ -43,31 +100,465 @@ nav a.active { background: lightblue; color: black; font-weight: 600; }
   <nav>
     <a href="{% url 'home' %}">Home</a>
     <a href="{% url 'courses' %}">Courses</a>
-    <a href="{% url 'languages' %}">Languages</a>
-    <a href="{% url 'roadmap' %}">Roadmap</a>
-    <a href="{% url 'about' %}">About</a>
-    <a href="{% url 'chatboat' %}">chatbot</a>
-
+    <a href="{% url 'languages' %}">Languages Pdfs</a>
+    <!-- <a href="{% url 'roadmap' %}">Roadmap</a> -->
+    <!-- <a href="{% url 'about' %}">About</a> -->
+    <a href="{% url 'chatboat' %}">Chatbot</a>
   </nav>
- <div class="header-right">
-
+  <div class="header-right">
     {% if user.is_authenticated %}
-
-        <a href="{% url 'logout_page' %}" class="signup">
-            Logout
-        </a>
-
+      <a href="{% url 'logout_page' %}" class="signup">Logout</a>
     {% else %}
-
-        <a href="{% url 'login_page' %}" class="signin">
-            Sign In
-        </a>
-
-        <a href="{% url 'signup' %}" class="signup">
-            Sign Up
-        </a>
-
+      <a href="{% url 'login_page' %}" class="signin">Sign In</a>
+      <a href="{% url 'signup' %}" class="signup">Sign Up</a>
     {% endif %}
-
-</div>
+  </div>
 </header>
+
+<!-- VOICE BUTTON -->
+<button id="voiceBtn" onclick="toggleVoice()">🎤 Voice Control</button>
+
+<!-- TOAST -->
+<div id="voiceToast">🎙️ Listening...</div>
+
+<script>
+
+let recognition;
+let voiceOn = false;
+
+function isSpeechSupported() {
+  return 'webkitSpeechRecognition' in window ||
+         'SpeechRecognition' in window;
+}
+
+function showToast(msg, duration = 2500) {
+
+  const toast =
+  document.getElementById('voiceToast');
+
+  toast.innerText = msg;
+  toast.classList.add('show');
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, duration);
+}
+
+function toggleVoice() {
+
+  if (!isSpeechSupported()) {
+
+    alert(
+      'Use Google Chrome or Edge'
+    );
+
+    return;
+  }
+
+  voiceOn
+  ? stopVoice()
+  : startVoice();
+}
+
+function startVoice() {
+
+  const SpeechRecognition =
+    window.SpeechRecognition ||
+    window.webkitSpeechRecognition;
+
+  recognition =
+  new SpeechRecognition();
+
+  recognition.continuous = true;
+  recognition.interimResults = true;
+  recognition.lang = 'en-IN';
+
+  recognition.onstart = function () {
+
+    voiceOn = true;
+
+    const btn =
+    document.getElementById('voiceBtn');
+
+    btn.innerText =
+    '🔴 Listening...';
+
+    btn.classList.add('active');
+
+    showToast(
+      '🎙️ Voice Control ON',
+      2500
+    );
+  };
+
+  recognition.onresult =
+  function (event) {
+
+    let command = "";
+
+    for (
+      let i = event.resultIndex;
+      i < event.results.length;
+      i++
+    ) {
+
+      if (
+        event.results[i].isFinal
+      ) {
+
+        command +=
+        event.results[i][0]
+        .transcript;
+      }
+    }
+
+    command =
+    command.toLowerCase()
+    .trim();
+
+    console.log(command);
+
+    if (command !== "") {
+
+      showToast(
+        '🗣️ ' + command,
+        1800
+      );
+
+      handleCommand(command);
+    }
+  };
+
+  recognition.onerror =
+  function (event) {
+
+    console.log(event.error);
+
+    if (
+      event.error ===
+      'not-allowed'
+    ) {
+
+      showToast(
+        'Mic Permission Denied'
+      );
+
+      stopVoice();
+    }
+  };
+
+  recognition.onend =
+  function () {
+
+    if (voiceOn) {
+
+      setTimeout(() => {
+        recognition.start();
+      }, 300);
+    }
+  };
+
+  recognition.start();
+}
+
+function stopVoice() {
+
+  if (recognition) {
+    recognition.stop();
+  }
+
+  voiceOn = false;
+
+  const btn =
+  document.getElementById('voiceBtn');
+
+  btn.innerText =
+  '🎤 Voice Control';
+
+  btn.classList.remove(
+    'active'
+  );
+
+  showToast(
+    '🔇 Voice OFF'
+  );
+}
+
+function handleCommand(command) {
+
+  command =
+  command.replace(
+    /\s+/g,
+    ' '
+  ).trim();
+
+  // HOME
+
+  if (
+
+    command.includes(
+      'go to home'
+    ) ||
+
+    command.includes(
+      'open home'
+    ) ||
+
+    command === 'home'
+
+  ) {
+
+    showToast(
+      '🏠 Opening Home'
+    );
+
+    setTimeout(() => {
+
+      window.location.href =
+      "{% url 'home' %}";
+
+    }, 800);
+  }
+
+  // FULL STACK PAGE
+
+  else if (
+
+    command.includes(
+      'open full stack development course'
+    ) ||
+
+    command.includes(
+      'full stack course'
+    ) ||
+
+    command.includes(
+      'full stack development'
+    ) ||
+
+    command.includes(
+      'mern stack'
+    ) ||
+
+    command.includes(
+      'web development course'
+    )
+
+  ) {
+
+    showToast(
+      '💻 Opening Full Stack'
+    );
+
+    setTimeout(() => {
+
+      window.location.href =
+      "{% url 'fullstackdevelopment' %}";
+
+    }, 800);
+  }
+
+  // DATA ANALYST
+
+  else if (
+
+    command.includes(
+      'data analyst course'
+    ) ||
+
+    command.includes(
+      'open data analyst course'
+    )
+
+  ) {
+
+    showToast(
+      '📊 Opening Data Analyst'
+    );
+
+    setTimeout(() => {
+
+      window.location.href =
+      "{% url 'datanalysiscourse' %}";
+
+    }, 800);
+  }
+
+  // COURSES PAGE
+
+  else if (
+
+    command.includes(
+      'open courses'
+    ) ||
+
+    command.includes(
+      'go to courses'
+    ) ||
+
+    command.includes(
+      'show courses'
+    ) ||
+
+    command ===
+    'courses'
+
+  ) {
+
+    showToast(
+      '📚 Opening Courses'
+    );
+
+    setTimeout(() => {
+
+      window.location.href =
+      "{% url 'courses' %}";
+
+    }, 800);
+  }
+
+  // LANGUAGES
+
+  else if (
+
+    command.includes(
+      'languages'
+    ) ||
+
+    command.includes(
+      'language pdf'
+    )
+
+  ) {
+
+    window.location.href =
+    "{% url 'languages' %}";
+  }
+
+  // CHATBOT
+
+  else if (
+
+    command.includes(
+      'chatbot'
+    ) ||
+
+    command.includes(
+      'open chatbot'
+    )
+
+  ) {
+
+    window.location.href =
+    "{% url 'chatboat' %}";
+  }
+
+  // LOGIN
+
+  else if (
+
+    command.includes(
+      'login'
+    ) ||
+
+    command.includes(
+      'sign in'
+    )
+
+  ) {
+
+    window.location.href =
+    "{% url 'login_page' %}";
+  }
+
+  // SIGNUP
+
+  else if (
+
+    command.includes(
+      'sign up'
+    ) ||
+
+    command.includes(
+      'register'
+    )
+
+  ) {
+
+    window.location.href =
+    "{% url 'signup' %}";
+  }
+
+  // SCROLL DOWN
+
+  else if (
+
+    command.includes(
+      'scroll down'
+    )
+
+  ) {
+
+    window.scrollBy({
+
+      top: 400,
+      behavior:
+      'smooth'
+
+    });
+  }
+
+  // SCROLL UP
+
+  else if (
+
+    command.includes(
+      'scroll up'
+    )
+
+  ) {
+
+    window.scrollBy({
+
+      top: -400,
+      behavior:
+      'smooth'
+
+    });
+  }
+
+  // BACK
+
+  else if (
+
+    command.includes(
+      'go back'
+    )
+
+  ) {
+
+    window.history.back();
+  }
+
+  // STOP VOICE
+
+  else if (
+
+    command.includes(
+      'stop voice'
+    )
+
+  ) {
+
+    stopVoice();
+  }
+
+  else {
+
+    showToast(
+      '❓ Command Not Found'
+    );
+  }
+}
+
+</script>
