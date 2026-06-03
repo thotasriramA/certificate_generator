@@ -1,0 +1,4808 @@
+{% include "header.html" %}
+<style>
+.topic-section{
+    max-width:1000px;
+    margin:60px auto;
+    background:#ffffff;
+    padding:50px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.topic-section h1{
+    font-size:42px;
+    margin-bottom:30px;
+    color:#1f2937;
+    border-bottom:3px solid #3aa0ff;
+    padding-bottom:15px;
+}
+
+.content-box{
+    background:#f8fbff;
+    padding:25px;
+    margin-bottom:25px;
+    border-radius:15px;
+    border-left:5px solid #3aa0ff;
+}
+
+.content-box h2{
+    margin-bottom:15px;
+    color:#3aa0ff;
+}
+
+.content-box p,
+.content-box li{
+    line-height:1.8;
+    font-size:18px;
+}
+
+pre{
+    background:#0f172a;
+    color:white;
+    padding:20px;
+    border-radius:10px;
+    overflow-x:auto;
+}
+</style>
+
+<div class="topic-section">
+
+<h1>Introduction to Python</h1>
+
+<div class="content-box">
+<h2>📖 Definition</h2>
+<p>
+Python is a high-level programming language used for web development,
+AI, data analysis, automation, cybersecurity, and software development.
+</p>
+</div>
+
+<div class="content-box">
+<h2>💡 Why Learn Python?</h2>
+<ul>
+<li>Easy to learn.</li>
+<li>Simple syntax.</li>
+<li>Used by top companies.</li>
+<li>Useful for AI and Cyber Security.</li>
+</ul>
+</div>
+
+<div class="content-box">
+<h2>✅ First Python Program</h2>
+
+<pre>
+print("Hello World")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Hello World
+</pre>
+
+</div>
+
+</div>
+<div class="topic-section">
+
+<h1>Variables</h1>
+
+<div class="content-box">
+<h2>📖 Definition</h2>
+
+<p>
+Variables are containers used to store data.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>📝 Syntax</h2>
+
+<pre>
+name = "Sriram"
+age = 18
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔍 Syntax Breakdown</h2>
+
+<ul>
+<li>name → Variable Name</li>
+<li>= → Assignment Operator</li>
+<li>"Sriram" → Stored Value</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example</h2>
+
+<pre>
+name = "Sriram"
+print(name)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Sriram
+</pre>
+
+</div>
+
+</div>
+<div class="topic-section">
+
+<h1>Data Types</h1>
+
+<div class="content-box">
+<h2>📖 Definition</h2>
+
+<p>
+Data Types define the type of value stored in a variable.
+Python automatically identifies the type of data you store.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Why We Use Data Types</h2>
+
+<ul>
+<li>To store different kinds of information.</li>
+<li>To perform operations correctly.</li>
+<li>To help Python understand the data.</li>
+<li>To avoid errors in programs.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>📝 Syntax</h2>
+
+<pre>
+name = "Sriram"
+age = 18
+height = 5.9
+is_student = True
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔍 Syntax Breakdown</h2>
+
+<ul>
+<li><b>String (str)</b> → Text values.</li>
+<li><b>Integer (int)</b> → Whole numbers.</li>
+<li><b>Float (float)</b> → Decimal numbers.</li>
+<li><b>Boolean (bool)</b> → True or False values.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>📚 Common Python Data Types</h2>
+
+<table style="width:100%;border-collapse:collapse;">
+<tr>
+<th>Data Type</th>
+<th>Example</th>
+</tr>
+
+<tr>
+<td>String</td>
+<td>"Hello"</td>
+</tr>
+
+<tr>
+<td>Integer</td>
+<td>100</td>
+</tr>
+
+<tr>
+<td>Float</td>
+<td>10.5</td>
+</tr>
+
+<tr>
+<td>Boolean</td>
+<td>True</td>
+</tr>
+
+<tr>
+<td>List</td>
+<td>[1,2,3]</td>
+</tr>
+
+<tr>
+<td>Tuple</td>
+<td>(1,2,3)</td>
+</tr>
+
+<tr>
+<td>Dictionary</td>
+<td>{"name":"Sriram"}</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Explanation</h2>
+
+<p>
+Every value stored in Python belongs to a specific data type.
+For example, text is stored as a String, whole numbers are stored as Integers,
+and decimal values are stored as Floats.
+</p>
+
+<p>
+Python automatically determines the data type when a value is assigned.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example</h2>
+
+<pre>
+name = "Sriram"
+age = 18
+height = 5.9
+is_student = True
+
+print(type(name))
+print(type(age))
+print(type(height))
+print(type(is_student))
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+&lt;class 'str'&gt;
+&lt;class 'int'&gt;
+&lt;class 'float'&gt;
+&lt;class 'bool'&gt;
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Common Mistakes</h2>
+
+<pre>
+age = "18"
+
+print(age + 5)
+</pre>
+
+<p>
+This will cause an error because age is a String, not an Integer.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>🧠 Real World Example</h2>
+
+<p>
+Instagram stores usernames as Strings, followers count as Integers,
+and account status as Boolean values.
+</p>
+
+<pre>
+username = "sriram123"
+followers = 1500
+verified = True
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎤 Interview Question</h2>
+
+<ul>
+<li>What are Data Types in Python?</li>
+<li>Difference between int and float?</li>
+<li>What is a Boolean value?</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>🏋 Practice Questions</h2>
+
+<ol>
+<li>Create a String variable called city.</li>
+<li>Create an Integer variable called marks.</li>
+<li>Create a Float variable called salary.</li>
+<li>Create a Boolean variable called is_logged_in.</li>
+</ol>
+
+</div>
+
+</div>
+<div class="topic-section">
+
+<h1>Type Casting</h1>
+
+<div class="content-box">
+<h2>📖 Definition</h2>
+
+<p>
+Type Casting is the process of converting one data type into another data type.
+For example, converting a String into an Integer or an Integer into a Float.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Why We Use Type Casting</h2>
+
+<ul>
+<li>To perform mathematical operations.</li>
+<li>To convert user input into numbers.</li>
+<li>To avoid type-related errors.</li>
+<li>To make data compatible with our program.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>📝 Syntax</h2>
+
+<pre>
+int(value)
+float(value)
+str(value)
+bool(value)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔍 Syntax Breakdown</h2>
+
+<ul>
+<li><b>int()</b> → Converts data into Integer.</li>
+<li><b>float()</b> → Converts data into Float.</li>
+<li><b>str()</b> → Converts data into String.</li>
+<li><b>bool()</b> → Converts data into Boolean.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>📚 Common Type Casting Functions</h2>
+
+<table style="width:100%;border-collapse:collapse;">
+<tr>
+<th>Function</th>
+<th>Example</th>
+<th>Result</th>
+</tr>
+
+<tr>
+<td>int()</td>
+<td>int("25")</td>
+<td>25</td>
+</tr>
+
+<tr>
+<td>float()</td>
+<td>float("10.5")</td>
+<td>10.5</td>
+</tr>
+
+<tr>
+<td>str()</td>
+<td>str(100)</td>
+<td>"100"</td>
+</tr>
+
+<tr>
+<td>bool()</td>
+<td>bool(1)</td>
+<td>True</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Explanation</h2>
+
+<p>
+Sometimes Python cannot perform operations between different data types.
+In such situations, we use type casting to convert values into the required type.
+</p>
+
+<p>
+This is especially useful when taking input from users because Python treats input as a String by default.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 1: String to Integer</h2>
+
+<pre>
+age = "18"
+
+age = int(age)
+
+print(age + 2)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+20
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 2: Integer to String</h2>
+
+<pre>
+marks = 95
+
+marks = str(marks)
+
+print("Marks: " + marks)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Marks: 95
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Common Mistakes</h2>
+
+<pre>
+age = "18"
+
+print(age + 5)
+</pre>
+
+<p>
+This will produce an error because Python cannot add a String and an Integer directly.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Correct Way</h2>
+
+<pre>
+age = "18"
+
+age = int(age)
+
+print(age + 5)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+23
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🧠 Real World Example</h2>
+
+<p>
+When users enter their age in a registration form, the input is received as a String.
+We convert it into an Integer to perform calculations.
+</p>
+
+<pre>
+age = input("Enter Age: ")
+
+age = int(age)
+
+print(age + 1)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎤 Interview Questions</h2>
+
+<ul>
+<li>What is Type Casting?</li>
+<li>Why do we use int() in Python?</li>
+<li>Difference between implicit and explicit type casting?</li>
+<li>What happens if int("hello") is executed?</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>🏋 Practice Questions</h2>
+
+<ol>
+<li>Convert the String "50" into an Integer.</li>
+<li>Convert the Integer 100 into a String.</li>
+<li>Convert the String "25.5" into a Float.</li>
+<li>Take age from user input and add 5 to it.</li>
+</ol>
+
+</div>
+
+<div class="content-box">
+<h2>🚀 Mini Challenge</h2>
+
+<p>
+Take two numbers from the user and display their sum using Type Casting.
+</p>
+
+<pre>
+num1 = input("Enter First Number: ")
+num2 = input("Enter Second Number: ")
+
+# Convert and add
+
+print("Sum =", ?)
+</pre>
+
+</div>
+
+</div>
+<div class="topic-section">
+
+<h1>User Input</h1>
+
+<div class="content-box">
+<h2>📖 Definition</h2>
+
+<p>
+User Input allows users to enter data while the program is running.
+Instead of using fixed values, we can ask users to provide information such as their name, age, marks, password, and more.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Why We Use User Input</h2>
+
+<ul>
+<li>To make programs interactive.</li>
+<li>To collect information from users.</li>
+<li>To perform calculations using user data.</li>
+<li>To create real-world applications.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>📝 Syntax</h2>
+
+<pre>
+variable_name = input("Message")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔍 Syntax Breakdown</h2>
+
+<ul>
+<li><b>input()</b> → Used to take input from the user.</li>
+<li><b>"Message"</b> → Displayed to the user.</li>
+<li><b>variable_name</b> → Stores the entered value.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Important Note</h2>
+
+<p>
+The input() function always returns data as a String (text).
+If you need numbers, use Type Casting such as int() or float().
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 1: Taking Name Input</h2>
+
+<pre>
+name = input("Enter Your Name: ")
+
+print("Welcome", name)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Enter Your Name: Sriram
+
+Welcome Sriram
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 2: Taking Age Input</h2>
+
+<pre>
+age = input("Enter Your Age: ")
+
+print(age)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Enter Your Age: 18
+
+18
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Common Mistake</h2>
+
+<pre>
+age = input("Enter Age: ")
+
+print(age + 5)
+</pre>
+
+<p>
+This will cause an error because age is stored as a String.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Correct Way</h2>
+
+<pre>
+age = int(input("Enter Age: "))
+
+print(age + 5)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Enter Age: 18
+
+23
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 3: Addition Calculator</h2>
+
+<pre>
+num1 = int(input("Enter First Number: "))
+num2 = int(input("Enter Second Number: "))
+
+sum = num1 + num2
+
+print("Sum =", sum)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Enter First Number: 10
+Enter Second Number: 20
+
+Sum = 30
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🧠 Real World Example</h2>
+
+<p>
+Login forms, registration forms, ATM systems, online shopping websites, and mobile applications all use user input.
+</p>
+
+<pre>
+username = input("Username: ")
+password = input("Password: ")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎤 Interview Questions</h2>
+
+<ul>
+<li>What is input() in Python?</li>
+<li>What data type does input() return?</li>
+<li>Why do we use int(input())?</li>
+<li>How can we take float values from users?</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>🏋 Practice Questions</h2>
+
+<ol>
+<li>Take a user's name and print a welcome message.</li>
+<li>Take age from the user and print it.</li>
+<li>Take two numbers and display their sum.</li>
+<li>Take city name and print it.</li>
+</ol>
+
+</div>
+
+<div class="content-box">
+<h2>🚀 Mini Challenge</h2>
+
+<p>
+Create a program that asks the user for their name and age, then displays:
+</p>
+
+<pre>
+Hello Sriram
+You are 18 years old.
+</pre>
+
+</div>
+
+</div>
+<div class="topic-section">
+
+<h1>Operators</h1>
+
+<div class="content-box">
+<h2>📖 Definition</h2>
+
+<p>
+Operators are special symbols used to perform operations on variables and values.
+Python provides different types of operators such as arithmetic, comparison, logical, and assignment operators.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Why We Use Operators</h2>
+
+<ul>
+<li>To perform calculations.</li>
+<li>To compare values.</li>
+<li>To combine conditions.</li>
+<li>To update variable values.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>📚 Types of Operators</h2>
+
+<ol>
+<li>Arithmetic Operators</li>
+<li>Comparison Operators</li>
+<li>Logical Operators</li>
+<li>Assignment Operators</li>
+</ol>
+
+</div>
+
+<div class="content-box">
+<h2>➕ Arithmetic Operators</h2>
+
+<table style="width:100%;border-collapse:collapse;">
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+
+<tr>
+<td>+</td>
+<td>Addition</td>
+<td>5 + 3</td>
+</tr>
+
+<tr>
+<td>-</td>
+<td>Subtraction</td>
+<td>5 - 3</td>
+</tr>
+
+<tr>
+<td>*</td>
+<td>Multiplication</td>
+<td>5 * 3</td>
+</tr>
+
+<tr>
+<td>/</td>
+<td>Division</td>
+<td>10 / 2</td>
+</tr>
+
+<tr>
+<td>%</td>
+<td>Remainder</td>
+<td>10 % 3</td>
+</tr>
+
+<tr>
+<td>//</td>
+<td>Floor Division</td>
+<td>10 // 3</td>
+</tr>
+
+<tr>
+<td>**</td>
+<td>Power</td>
+<td>2 ** 3</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example: Arithmetic Operators</h2>
+
+<pre>
+a = 10
+b = 3
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print(a % b)
+print(a // b)
+print(a ** b)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+13
+7
+30
+3.3333333333333335
+1
+3
+1000
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>⚖ Comparison Operators</h2>
+
+<p>
+Comparison operators compare two values and return True or False.
+</p>
+
+<table style="width:100%;border-collapse:collapse;">
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+</tr>
+
+<tr>
+<td>==</td>
+<td>Equal To</td>
+</tr>
+
+<tr>
+<td>!=</td>
+<td>Not Equal To</td>
+</tr>
+
+<tr>
+<td>></td>
+<td>Greater Than</td>
+</tr>
+
+<tr>
+<td><</td>
+<td>Less Than</td>
+</tr>
+
+<tr>
+<td>>=</td>
+<td>Greater Than or Equal To</td>
+</tr>
+
+<tr>
+<td><=</td>
+<td>Less Than or Equal To</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example: Comparison Operators</h2>
+
+<pre>
+age = 18
+
+print(age == 18)
+print(age > 18)
+print(age < 18)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+True
+False
+False
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔗 Logical Operators</h2>
+
+<p>
+Logical operators are used to combine multiple conditions.
+</p>
+
+<table style="width:100%;border-collapse:collapse;">
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+</tr>
+
+<tr>
+<td>and</td>
+<td>Both conditions must be True</td>
+</tr>
+
+<tr>
+<td>or</td>
+<td>At least one condition must be True</td>
+</tr>
+
+<tr>
+<td>not</td>
+<td>Reverses the result</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example: Logical Operators</h2>
+
+<pre>
+age = 20
+citizen = True
+
+print(age >= 18 and citizen)
+print(age < 18 or citizen)
+print(not citizen)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+True
+True
+False
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📝 Assignment Operators</h2>
+
+<p>
+Assignment operators are used to assign and update values.
+</p>
+
+<table style="width:100%;border-collapse:collapse;">
+<tr>
+<th>Operator</th>
+<th>Example</th>
+<th>Equivalent To</th>
+</tr>
+
+<tr>
+<td>=</td>
+<td>x = 5</td>
+<td>x = 5</td>
+</tr>
+
+<tr>
+<td>+=</td>
+<td>x += 2</td>
+<td>x = x + 2</td>
+</tr>
+
+<tr>
+<td>-=</td>
+<td>x -= 2</td>
+<td>x = x - 2</td>
+</tr>
+
+<tr>
+<td>*=</td>
+<td>x *= 2</td>
+<td>x = x * 2</td>
+</tr>
+
+<tr>
+<td>/=</td>
+<td>x /= 2</td>
+<td>x = x / 2</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example: Assignment Operators</h2>
+
+<pre>
+score = 10
+
+score += 5
+
+print(score)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+15
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Common Mistakes</h2>
+
+<pre>
+age = 18
+
+if age = 18:
+    print("Adult")
+</pre>
+
+<p>
+Wrong! Use == for comparison, not =.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Correct Way</h2>
+
+<pre>
+age = 18
+
+if age == 18:
+    print("Adult")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🧠 Real World Example</h2>
+
+<p>
+E-commerce websites use operators to calculate discounts, compare prices, and check eligibility.
+</p>
+
+<pre>
+price = 1000
+discount = 200
+
+final_price = price - discount
+
+print(final_price)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎤 Interview Questions</h2>
+
+<ul>
+<li>What are Operators in Python?</li>
+<li>Difference between = and == ?</li>
+<li>What is the use of Logical Operators?</li>
+<li>What does % operator do?</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>🏋 Practice Questions</h2>
+
+<ol>
+<li>Add two numbers and print the result.</li>
+<li>Check whether a number is greater than 100.</li>
+<li>Use and operator with two conditions.</li>
+<li>Use += operator to increase a variable.</li>
+</ol>
+
+</div>
+
+<div class="content-box">
+<h2>🚀 Mini Challenge</h2>
+
+<p>
+Take two numbers from the user and display:
+</p>
+
+<ul>
+<li>Addition</li>
+<li>Subtraction</li>
+<li>Multiplication</li>
+<li>Division</li>
+<li>Remainder</li>
+</ul>
+
+</div>
+
+</div>
+<div class="topic-section">
+
+<h1>If Statement</h1>
+
+<div class="content-box">
+<h2>📖 Definition</h2>
+
+<p>
+The if statement is used to make decisions in Python.
+It executes a block of code only when a condition is True.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Why We Use If Statement</h2>
+
+<ul>
+<li>To make decisions in programs.</li>
+<li>To check conditions.</li>
+<li>To control program flow.</li>
+<li>To create smart applications.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>📝 Syntax</h2>
+
+<pre>
+if condition:
+    # code to execute
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔍 Syntax Breakdown</h2>
+
+<ul>
+<li><b>if</b> → Decision making keyword.</li>
+<li><b>condition</b> → Expression that returns True or False.</li>
+<li><b>:</b> → Indicates the start of the block.</li>
+<li><b>Indentation</b> → Code inside the if block must be indented.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>💡 How It Works</h2>
+
+<p>
+Python first checks the condition.
+If the condition is True, the code inside the if block runs.
+If the condition is False, Python skips the block.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 1</h2>
+
+<pre>
+age = 18
+
+if age >= 18:
+    print("You can vote")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+You can vote
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 2</h2>
+
+<pre>
+marks = 85
+
+if marks >= 35:
+    print("Pass")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Pass
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📊 Flow Explanation</h2>
+
+<pre>
+Start
+  ↓
+Check Condition
+  ↓
+True ? ---- Yes ----> Execute Code
+  ↓
+ No
+  ↓
+Skip Code
+  ↓
+End
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Common Mistake 1</h2>
+
+<pre>
+age = 18
+
+if age >= 18
+    print("Adult")
+</pre>
+
+<p>
+Error because the colon (:) is missing.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Correct Way</h2>
+
+<pre>
+age = 18
+
+if age >= 18:
+    print("Adult")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Common Mistake 2</h2>
+
+<pre>
+age = 18
+
+if age >= 18:
+print("Adult")
+</pre>
+
+<p>
+Error because indentation is missing.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Correct Way</h2>
+
+<pre>
+age = 18
+
+if age >= 18:
+    print("Adult")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🧠 Real World Example</h2>
+
+<p>
+An ATM machine checks whether your balance is enough before allowing a withdrawal.
+</p>
+
+<pre>
+balance = 5000
+
+if balance >= 1000:
+    print("Withdrawal Allowed")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🛒 E-Commerce Example</h2>
+
+<pre>
+cart_total = 2500
+
+if cart_total >= 2000:
+    print("Free Delivery")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🏦 Banking Example</h2>
+
+<pre>
+account_balance = 10000
+
+if account_balance > 5000:
+    print("Eligible for Premium Account")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎤 Interview Questions</h2>
+
+<ul>
+<li>What is an if statement?</li>
+<li>Why do we use if statements?</li>
+<li>What happens when the condition is False?</li>
+<li>Why is indentation important in Python?</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>🏋 Practice Questions</h2>
+
+<ol>
+<li>Create a variable age and check if it is greater than 18.</li>
+<li>Create a variable marks and print Pass if marks are above 35.</li>
+<li>Check whether a number is positive.</li>
+<li>Check whether salary is above 50000.</li>
+</ol>
+
+</div>
+
+<div class="content-box">
+<h2>🚀 Mini Challenge</h2>
+
+<p>
+Take a number from the user.
+If the number is greater than 100, print:
+</p>
+
+<pre>
+Big Number
+</pre>
+
+<p>
+Otherwise print nothing.
+</p>
+
+<pre>
+num = int(input("Enter Number: "))
+
+# Write your if statement here
+</pre>
+
+</div>
+
+</div>
+<div class="topic-section">
+
+<h1>If Else Statement</h1>
+
+<div class="content-box">
+<h2>📖 Definition</h2>
+
+<p>
+The If Else statement is used when we want Python to choose between two possible actions.
+If the condition is True, one block runs.
+If the condition is False, another block runs.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Why We Use If Else</h2>
+
+<ul>
+<li>To make decisions in programs.</li>
+<li>To handle True and False situations.</li>
+<li>To control program flow.</li>
+<li>To build smart applications.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>📝 Syntax</h2>
+
+<pre>
+if condition:
+    # code if True
+else:
+    # code if False
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔍 Syntax Breakdown</h2>
+
+<ul>
+<li><b>if</b> → Checks the condition.</li>
+<li><b>condition</b> → Returns True or False.</li>
+<li><b>else</b> → Runs when the condition is False.</li>
+<li><b>:</b> → Starts a block of code.</li>
+<li><b>Indentation</b> → Required in Python.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>💡 How It Works</h2>
+
+<p>
+Python checks the condition first.
+If it is True, the if block runs.
+Otherwise, the else block runs.
+Only one block executes.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 1: Voting Eligibility</h2>
+
+<pre>
+age = 16
+
+if age >= 18:
+    print("You Can Vote")
+else:
+    print("You Cannot Vote")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+You Cannot Vote
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 2: Pass or Fail</h2>
+
+<pre>
+marks = 45
+
+if marks >= 35:
+    print("Pass")
+else:
+    print("Fail")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Pass
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📊 Flow Explanation</h2>
+
+<pre>
+Start
+  ↓
+Check Condition
+  ↓
+True?
+ ↓      ↓
+Yes      No
+ ↓        ↓
+If Block  Else Block
+ ↓        ↓
+    End
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Common Mistake 1</h2>
+
+<pre>
+age = 18
+
+if age >= 18:
+    print("Adult")
+else
+    print("Minor")
+</pre>
+
+<p>
+Error because colon (:) is missing after else.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Correct Way</h2>
+
+<pre>
+age = 18
+
+if age >= 18:
+    print("Adult")
+else:
+    print("Minor")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Common Mistake 2</h2>
+
+<pre>
+age = 18
+
+if age >= 18:
+print("Adult")
+else:
+print("Minor")
+</pre>
+
+<p>
+Error because indentation is missing.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>🧠 Real World Example</h2>
+
+<p>
+Netflix checks whether a user has an active subscription.
+</p>
+
+<pre>
+subscription = True
+
+if subscription:
+    print("Watch Movies")
+else:
+    print("Please Subscribe")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🏦 Banking Example</h2>
+
+<pre>
+balance = 3000
+
+if balance >= 5000:
+    print("Withdrawal Approved")
+else:
+    print("Insufficient Balance")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🛒 Shopping Example</h2>
+
+<pre>
+cart_total = 1500
+
+if cart_total >= 2000:
+    print("Free Delivery")
+else:
+    print("Delivery Charges Apply")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎤 Interview Questions</h2>
+
+<ul>
+<li>What is the difference between If and If Else?</li>
+<li>Can an Else block run without an If block?</li>
+<li>What happens when the condition is False?</li>
+<li>Why is indentation important?</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>🏋 Practice Questions</h2>
+
+<ol>
+<li>Check whether a number is positive or negative.</li>
+<li>Check whether a student passed or failed.</li>
+<li>Check if a person is eligible to vote.</li>
+<li>Check whether salary is above 50000.</li>
+</ol>
+
+</div>
+
+<div class="content-box">
+<h2>🚀 Mini Challenge</h2>
+
+<p>
+Take a number from the user.
+If the number is even, print:
+</p>
+
+<pre>
+Even Number
+</pre>
+
+<p>
+Otherwise print:
+</p>
+
+<pre>
+Odd Number
+</pre>
+
+<pre>
+num = int(input("Enter Number: "))
+
+# Write your if else statement here
+</pre>
+
+</div>
+
+</div>
+<div class="topic-section">
+
+<h1>Elif Statement</h1>
+
+<div class="content-box">
+<h2>📖 Definition</h2>
+
+<p>
+The elif statement stands for "Else If".
+It is used when we need to check multiple conditions.
+If the first condition is False, Python checks the next condition using elif.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Why We Use Elif</h2>
+
+<ul>
+<li>To check multiple conditions.</li>
+<li>To avoid writing many separate if statements.</li>
+<li>To make decision-making easier.</li>
+<li>To improve code readability.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>📝 Syntax</h2>
+
+<pre>
+if condition1:
+    # code
+elif condition2:
+    # code
+elif condition3:
+    # code
+else:
+    # code
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔍 Syntax Breakdown</h2>
+
+<ul>
+<li><b>if</b> → Checks the first condition.</li>
+<li><b>elif</b> → Checks another condition if previous condition is False.</li>
+<li><b>else</b> → Executes when all conditions are False.</li>
+<li><b>:</b> → Starts a code block.</li>
+<li><b>Indentation</b> → Required in Python.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>💡 How It Works</h2>
+
+<p>
+Python starts from the top.
+As soon as one condition becomes True, Python executes that block and stops checking the remaining conditions.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 1: Student Grade Calculator</h2>
+
+<pre>
+marks = 85
+
+if marks >= 90:
+    print("Grade A+")
+elif marks >= 75:
+    print("Grade A")
+elif marks >= 60:
+    print("Grade B")
+elif marks >= 35:
+    print("Grade C")
+else:
+    print("Fail")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Grade A
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 2: Age Category</h2>
+
+<pre>
+age = 20
+
+if age < 13:
+    print("Child")
+elif age < 18:
+    print("Teenager")
+elif age < 60:
+    print("Adult")
+else:
+    print("Senior Citizen")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Adult
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📊 Flow Explanation</h2>
+
+<pre>
+Start
+  ↓
+Check Condition 1
+  ↓
+True ? → Run Code
+  ↓
+False
+  ↓
+Check Condition 2
+  ↓
+True ? → Run Code
+  ↓
+False
+  ↓
+Check Condition 3
+  ↓
+True ? → Run Code
+  ↓
+False
+  ↓
+Else Block
+  ↓
+End
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Common Mistake</h2>
+
+<pre>
+marks = 80
+
+if marks >= 75
+    print("Grade A")
+elif marks >= 60:
+    print("Grade B")
+</pre>
+
+<p>
+Error because the colon (:) is missing after the if condition.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Correct Way</h2>
+
+<pre>
+marks = 80
+
+if marks >= 75:
+    print("Grade A")
+elif marks >= 60:
+    print("Grade B")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🏦 Banking Example</h2>
+
+<pre>
+balance = 12000
+
+if balance >= 50000:
+    print("Platinum Account")
+elif balance >= 20000:
+    print("Gold Account")
+elif balance >= 5000:
+    print("Silver Account")
+else:
+    print("Basic Account")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🛒 Shopping Example</h2>
+
+<pre>
+purchase = 4500
+
+if purchase >= 10000:
+    print("30% Discount")
+elif purchase >= 5000:
+    print("20% Discount")
+elif purchase >= 2000:
+    print("10% Discount")
+else:
+    print("No Discount")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🧠 Real World Example</h2>
+
+<p>
+Food delivery apps use multiple conditions to calculate delivery charges based on distance.
+</p>
+
+<pre>
+distance = 7
+
+if distance <= 3:
+    print("Free Delivery")
+elif distance <= 8:
+    print("₹30 Delivery Fee")
+else:
+    print("₹60 Delivery Fee")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎤 Interview Questions</h2>
+
+<ul>
+<li>What is the purpose of elif?</li>
+<li>Difference between if and elif?</li>
+<li>Can we use multiple elif statements?</li>
+<li>When does the else block execute?</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>🏋 Practice Questions</h2>
+
+<ol>
+<li>Create a grade calculator.</li>
+<li>Display age category based on age.</li>
+<li>Create a discount calculator.</li>
+<li>Display employee level based on salary.</li>
+</ol>
+
+</div>
+
+<div class="content-box">
+<h2>🚀 Mini Challenge</h2>
+
+<p>
+Take marks from the user and display:
+</p>
+
+<ul>
+<li>90+ → Grade A+</li>
+<li>75+ → Grade A</li>
+<li>60+ → Grade B</li>
+<li>35+ → Grade C</li>
+<li>Below 35 → Fail</li>
+</ul>
+
+<pre>
+marks = int(input("Enter Marks: "))
+
+# Write your elif program here
+</pre>
+
+</div>
+
+</div>
+<div class="topic-section">
+
+<h1>Nested If Statement</h1>
+
+<div class="content-box">
+<h2>📖 Definition</h2>
+
+<p>
+A Nested If Statement means placing one if statement inside another if statement.
+It is used when we need to check multiple levels of conditions.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Why We Use Nested If</h2>
+
+<ul>
+<li>To check multiple conditions step by step.</li>
+<li>To perform advanced decision making.</li>
+<li>To create login systems.</li>
+<li>To create ATM and banking applications.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>📝 Syntax</h2>
+
+<pre>
+if condition1:
+    
+    if condition2:
+        # code
+    
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔍 Syntax Breakdown</h2>
+
+<ul>
+<li><b>Outer If</b> → First condition.</li>
+<li><b>Inner If</b> → Second condition.</li>
+<li>The inner if runs only when the outer if is True.</li>
+<li>Indentation is very important.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>💡 How It Works</h2>
+
+<p>
+Python first checks the outer condition.
+If it is True, Python enters the outer block.
+Then Python checks the inner condition.
+If both conditions are True, the inner block executes.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 1: Voting Eligibility</h2>
+
+<pre>
+age = 20
+citizen = True
+
+if age >= 18:
+    
+    if citizen:
+        print("Eligible To Vote")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Eligible To Vote
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 2: College Admission</h2>
+
+<pre>
+marks = 85
+documents = True
+
+if marks >= 75:
+    
+    if documents:
+        print("Admission Approved")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Admission Approved
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📊 Flow Explanation</h2>
+
+<pre>
+Start
+  ↓
+Outer Condition
+  ↓
+True?
+ ↓
+Yes
+ ↓
+Inner Condition
+ ↓
+True?
+ ↓
+Yes
+ ↓
+Execute Code
+ ↓
+End
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Common Mistake</h2>
+
+<pre>
+age = 20
+
+if age >= 18:
+
+if True:
+    print("Eligible")
+</pre>
+
+<p>
+Error because the inner if statement is not properly indented.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Correct Way</h2>
+
+<pre>
+age = 20
+
+if age >= 18:
+
+    if True:
+        print("Eligible")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🏦 Banking Example</h2>
+
+<pre>
+balance = 10000
+pin_correct = True
+
+if balance >= 5000:
+    
+    if pin_correct:
+        print("Withdrawal Successful")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔐 Login System Example</h2>
+
+<pre>
+username = "admin"
+password = "1234"
+
+if username == "admin":
+    
+    if password == "1234":
+        print("Login Successful")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🛒 Shopping Example</h2>
+
+<pre>
+cart_total = 5000
+premium_member = True
+
+if cart_total >= 3000:
+    
+    if premium_member:
+        print("Extra Discount Applied")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🧠 Real World Example</h2>
+
+<p>
+Most applications first verify user identity and then check permissions.
+This process commonly uses Nested If Statements.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>🎤 Interview Questions</h2>
+
+<ul>
+<li>What is a Nested If Statement?</li>
+<li>Why do we use Nested If?</li>
+<li>Can we place multiple if statements inside another if?</li>
+<li>What is the importance of indentation in Nested If?</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>🏋 Practice Questions</h2>
+
+<ol>
+<li>Create a login system using Nested If.</li>
+<li>Check age and citizenship for voting eligibility.</li>
+<li>Check marks and documents for college admission.</li>
+<li>Create an ATM withdrawal program.</li>
+</ol>
+
+</div>
+
+<div class="content-box">
+<h2>🚀 Mini Challenge</h2>
+
+<p>
+Create a program that checks:
+</p>
+
+<ul>
+<li>Age must be 18 or above.</li>
+<li>User must have a valid ID card.</li>
+</ul>
+
+<p>
+If both conditions are True, print:
+</p>
+
+<pre>
+Access Granted
+</pre>
+
+<pre>
+age = int(input("Enter Age: "))
+has_id = True
+
+# Write Nested If Statement Here
+</pre>
+
+</div>
+
+</div>
+<div class="topic-section">
+
+<h1>For Loop</h1>
+
+<div class="content-box">
+<h2>📖 Definition</h2>
+
+<p>
+A For Loop is used to repeat a block of code multiple times.
+It is commonly used when we know how many times we want to repeat something or when we want to go through a collection of items.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Why We Use For Loops</h2>
+
+<ul>
+<li>To avoid writing the same code again and again.</li>
+<li>To process lists, strings, and other collections.</li>
+<li>To perform repetitive tasks efficiently.</li>
+<li>To make programs shorter and cleaner.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>📝 Syntax</h2>
+
+<pre>
+for variable in sequence:
+    # code
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔍 Syntax Breakdown</h2>
+
+<ul>
+<li><b>for</b> → Loop keyword.</li>
+<li><b>variable</b> → Temporary variable.</li>
+<li><b>in</b> → Used to access items one by one.</li>
+<li><b>sequence</b> → List, string, range, tuple, etc.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>💡 How It Works</h2>
+
+<p>
+Python takes one item from the sequence at a time.
+The loop continues until all items are processed.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 1: Print Numbers</h2>
+
+<pre>
+for i in range(5):
+    print(i)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+0
+1
+2
+3
+4
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📚 Understanding range()</h2>
+
+<p>
+The range() function generates a sequence of numbers.
+</p>
+
+<pre>
+range(start, stop, step)
+</pre>
+
+<table style="width:100%;border-collapse:collapse;">
+<tr>
+<th>Example</th>
+<th>Output</th>
+</tr>
+
+<tr>
+<td>range(5)</td>
+<td>0,1,2,3,4</td>
+</tr>
+
+<tr>
+<td>range(1,6)</td>
+<td>1,2,3,4,5</td>
+</tr>
+
+<tr>
+<td>range(2,11,2)</td>
+<td>2,4,6,8,10</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 2: Using Start and Stop</h2>
+
+<pre>
+for i in range(1,6):
+    print(i)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+1
+2
+3
+4
+5
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 3: Print Even Numbers</h2>
+
+<pre>
+for i in range(2,11,2):
+    print(i)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+2
+4
+6
+8
+10
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 4: Loop Through a List</h2>
+
+<pre>
+fruits = ["Apple", "Banana", "Mango"]
+
+for fruit in fruits:
+    print(fruit)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Apple
+Banana
+Mango
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 5: Loop Through a String</h2>
+
+<pre>
+name = "Sriram"
+
+for letter in name:
+    print(letter)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+S
+r
+i
+r
+a
+m
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 6: Multiplication Table</h2>
+
+<pre>
+number = 5
+
+for i in range(1,11):
+    print(number * i)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+5
+10
+15
+20
+25
+30
+35
+40
+45
+50
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📊 Flow Explanation</h2>
+
+<pre>
+Start
+ ↓
+Get First Item
+ ↓
+Execute Code
+ ↓
+Get Next Item
+ ↓
+Execute Code
+ ↓
+Repeat Until End
+ ↓
+End
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Common Mistake</h2>
+
+<pre>
+for i range(5):
+    print(i)
+</pre>
+
+<p>
+Error because the keyword <b>in</b> is missing.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Correct Way</h2>
+
+<pre>
+for i in range(5):
+    print(i)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔄 Nested For Loop</h2>
+
+<p>
+A loop inside another loop is called a Nested Loop.
+</p>
+
+<pre>
+for i in range(3):
+
+    for j in range(2):
+        print(i, j)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+0 0
+0 1
+1 0
+1 1
+2 0
+2 1
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>⭐ Pattern Example</h2>
+
+<pre>
+for i in range(5):
+    print("*")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+*
+*
+*
+*
+*
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🧠 Real World Example</h2>
+
+<p>
+Instagram loops through thousands of posts and displays them one by one on your feed.
+</p>
+
+<pre>
+posts = ["Post1", "Post2", "Post3"]
+
+for post in posts:
+    print(post)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎤 Interview Questions</h2>
+
+<ul>
+<li>What is a For Loop?</li>
+<li>Why do we use range()?</li>
+<li>Difference between For Loop and While Loop?</li>
+<li>What is a Nested Loop?</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>🏋 Practice Questions</h2>
+
+<ol>
+<li>Print numbers from 1 to 20.</li>
+<li>Print even numbers from 2 to 50.</li>
+<li>Print multiplication table of 7.</li>
+<li>Loop through a list of subjects.</li>
+<li>Print each letter of your name.</li>
+</ol>
+
+</div>
+
+<div class="content-box">
+<h2>🚀 Mini Challenge</h2>
+
+<p>
+Take a number from the user and print its multiplication table from 1 to 10.
+</p>
+
+<pre>
+num = int(input("Enter Number: "))
+
+# Write For Loop Here
+
+</pre>
+
+</div>
+
+</div>
+<div class="topic-section">
+
+<h1>While Loop</h1>
+
+<div class="content-box">
+<h2>📖 Definition</h2>
+
+<p>
+A While Loop repeatedly executes a block of code as long as a condition remains True.
+Unlike a For Loop, we usually use a While Loop when we don't know exactly how many times the loop should run.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Why We Use While Loops</h2>
+
+<ul>
+<li>To repeat tasks until a condition becomes False.</li>
+<li>To create login systems.</li>
+<li>To build games and menu-driven programs.</li>
+<li>To continuously take user input.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>📝 Syntax</h2>
+
+<pre>
+while condition:
+    # code
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔍 Syntax Breakdown</h2>
+
+<ul>
+<li><b>while</b> → Loop keyword.</li>
+<li><b>condition</b> → Checked before every iteration.</li>
+<li><b>:</b> → Starts the loop block.</li>
+<li><b>Indentation</b> → Required for loop body.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>💡 How It Works</h2>
+
+<p>
+Python checks the condition.
+If it is True, the loop executes.
+After execution, Python checks the condition again.
+The process continues until the condition becomes False.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 1: Basic While Loop</h2>
+
+<pre>
+count = 1
+
+while count <= 5:
+    print(count)
+    count += 1
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+1
+2
+3
+4
+5
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📚 Understanding count += 1</h2>
+
+<p>
+The value of count increases by 1 after every loop iteration.
+Without this statement, the loop would run forever.
+</p>
+
+<pre>
+count = count + 1
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 2: Print Even Numbers</h2>
+
+<pre>
+number = 2
+
+while number <= 10:
+    print(number)
+    number += 2
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+2
+4
+6
+8
+10
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 3: Countdown Timer</h2>
+
+<pre>
+count = 5
+
+while count > 0:
+    print(count)
+    count -= 1
+
+print("Time Up!")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+5
+4
+3
+2
+1
+Time Up!
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📊 Flow Explanation</h2>
+
+<pre>
+Start
+ ↓
+Check Condition
+ ↓
+True?
+ ↓
+Execute Code
+ ↓
+Update Variable
+ ↓
+Check Again
+ ↓
+False?
+ ↓
+End
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Infinite Loop</h2>
+
+<p>
+An Infinite Loop happens when the condition never becomes False.
+</p>
+
+<pre>
+count = 1
+
+while count <= 5:
+    print(count)
+</pre>
+
+<p>
+This loop never stops because count is never updated.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Correct Way</h2>
+
+<pre>
+count = 1
+
+while count <= 5:
+    print(count)
+    count += 1
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔐 Login System Example</h2>
+
+<pre>
+password = ""
+
+while password != "python123":
+    password = input("Enter Password: ")
+
+print("Login Successful")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🏦 ATM Example</h2>
+
+<pre>
+balance = 5000
+
+while balance > 0:
+    print("Current Balance:", balance)
+    break
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎮 Game Example</h2>
+
+<pre>
+lives = 3
+
+while lives > 0:
+    print("Game Running")
+    lives -= 1
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🧠 Real World Example</h2>
+
+<p>
+Many websites continuously check whether a user is logged in.
+As long as the session is active, the application keeps running.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Common Mistake</h2>
+
+<pre>
+count = 1
+
+while count <= 5
+    print(count)
+</pre>
+
+<p>
+Error because the colon (:) is missing.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Correct Way</h2>
+
+<pre>
+count = 1
+
+while count <= 5:
+    print(count)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎤 Interview Questions</h2>
+
+<ul>
+<li>What is a While Loop?</li>
+<li>When should we use While Loop?</li>
+<li>What is an Infinite Loop?</li>
+<li>Difference between For Loop and While Loop?</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>🏋 Practice Questions</h2>
+
+<ol>
+<li>Print numbers from 1 to 20 using While Loop.</li>
+<li>Print even numbers from 2 to 50.</li>
+<li>Create a countdown timer.</li>
+<li>Create a password checker.</li>
+<li>Print multiplication table using While Loop.</li>
+</ol>
+
+</div>
+
+<div class="content-box">
+<h2>🚀 Mini Challenge</h2>
+
+<p>
+Take a number from the user and print numbers from 1 to that number using a While Loop.
+</p>
+
+<pre>
+num = int(input("Enter Number: "))
+
+# Write While Loop Here
+</pre>
+
+</div>
+
+</div>
+<div class="topic-section">
+
+<h1>Break Statement</h1>
+
+<div class="content-box">
+<h2>📖 Definition</h2>
+
+<p>
+The Break Statement is used to immediately stop a loop.
+When Python encounters a break statement, it exits the loop completely and continues with the next line of code after the loop.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Why We Use Break</h2>
+
+<ul>
+<li>To stop a loop when a condition is met.</li>
+<li>To improve program performance.</li>
+<li>To avoid unnecessary iterations.</li>
+<li>To exit menus and search operations.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>📝 Syntax</h2>
+
+<pre>
+for item in sequence:
+
+    if condition:
+        break
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔍 Syntax Breakdown</h2>
+
+<ul>
+<li><b>break</b> → Stops the loop immediately.</li>
+<li>Works inside both For and While loops.</li>
+<li>Control moves to the first statement after the loop.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>💡 How It Works</h2>
+
+<p>
+Python keeps running the loop until it encounters the break statement.
+Once break executes, the loop ends immediately.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 1: Stop Loop at 5</h2>
+
+<pre>
+for i in range(1,11):
+
+    if i == 5:
+        break
+
+    print(i)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+1
+2
+3
+4
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 2: Search in List</h2>
+
+<pre>
+numbers = [10, 20, 30, 40, 50]
+
+for num in numbers:
+
+    if num == 30:
+        print("Found")
+        break
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Found
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📊 Flow Explanation</h2>
+
+<pre>
+Start
+ ↓
+Loop Starts
+ ↓
+Condition True?
+ ↓
+Yes
+ ↓
+Break
+ ↓
+Exit Loop
+ ↓
+End
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 3: While Loop with Break</h2>
+
+<pre>
+count = 1
+
+while True:
+
+    print(count)
+
+    if count == 5:
+        break
+
+    count += 1
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+1
+2
+3
+4
+5
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔐 Login System Example</h2>
+
+<pre>
+while True:
+
+    password = input("Enter Password: ")
+
+    if password == "python123":
+        print("Login Successful")
+        break
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🛒 Shopping Example</h2>
+
+<pre>
+products = ["Phone", "Laptop", "Watch"]
+
+for product in products:
+
+    if product == "Laptop":
+        print("Product Found")
+        break
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🏦 ATM Example</h2>
+
+<pre>
+while True:
+
+    option = input("Enter Exit to Quit: ")
+
+    if option == "Exit":
+        break
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🧠 Real World Example</h2>
+
+<p>
+Google Search stops searching once it finds the required result.
+Many applications use break to stop processing when the goal is achieved.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Common Mistake</h2>
+
+<pre>
+if i == 5:
+break
+</pre>
+
+<p>
+Error because break must be properly indented inside the block.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Correct Way</h2>
+
+<pre>
+if i == 5:
+    break
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎤 Interview Questions</h2>
+
+<ul>
+<li>What is Break Statement?</li>
+<li>Can Break be used in While Loops?</li>
+<li>What happens after Break executes?</li>
+<li>Difference between Break and Continue?</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>🏋 Practice Questions</h2>
+
+<ol>
+<li>Print numbers from 1 to 100 and stop at 25.</li>
+<li>Search for a value in a list using Break.</li>
+<li>Create a password checker using Break.</li>
+<li>Create a menu system with Exit option.</li>
+</ol>
+
+</div>
+
+<div class="content-box">
+<h2>🚀 Mini Challenge</h2>
+
+<p>
+Ask the user to enter numbers continuously.
+Stop the program when the user enters 0.
+</p>
+
+<pre>
+while True:
+
+    num = int(input("Enter Number: "))
+
+    # Write Break Logic Here
+</pre>
+
+</div>
+
+</div>
+<div class="topic-section">
+
+<h1>Continue Statement</h1>
+
+<div class="content-box">
+<h2>📖 Definition</h2>
+
+<p>
+The Continue Statement is used to skip the current iteration of a loop and move directly to the next iteration.
+Unlike Break, Continue does not stop the loop completely.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Why We Use Continue</h2>
+
+<ul>
+<li>To skip unwanted values.</li>
+<li>To filter data.</li>
+<li>To ignore specific conditions.</li>
+<li>To make loops more efficient.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>📝 Syntax</h2>
+
+<pre>
+for item in sequence:
+
+    if condition:
+        continue
+
+    print(item)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔍 Syntax Breakdown</h2>
+
+<ul>
+<li><b>continue</b> → Skips current iteration.</li>
+<li>Loop does not stop.</li>
+<li>Moves directly to the next iteration.</li>
+<li>Works in both For and While loops.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>💡 How It Works</h2>
+
+<p>
+When Python encounters continue, it skips the remaining code inside the current loop iteration and starts the next iteration immediately.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 1: Skip Number 5</h2>
+
+<pre>
+for i in range(1,11):
+
+    if i == 5:
+        continue
+
+    print(i)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+1
+2
+3
+4
+6
+7
+8
+9
+10
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 2: Skip Even Numbers</h2>
+
+<pre>
+for i in range(1,11):
+
+    if i % 2 == 0:
+        continue
+
+    print(i)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+1
+3
+5
+7
+9
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📊 Flow Explanation</h2>
+
+<pre>
+Start
+ ↓
+Loop Starts
+ ↓
+Condition True?
+ ↓
+Yes
+ ↓
+Continue
+ ↓
+Next Iteration
+ ↓
+End
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 3: While Loop with Continue</h2>
+
+<pre>
+count = 0
+
+while count < 5:
+
+    count += 1
+
+    if count == 3:
+        continue
+
+    print(count)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+1
+2
+4
+5
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📚 Break vs Continue</h2>
+
+<table style="width:100%;border-collapse:collapse;">
+<tr>
+<th>Break</th>
+<th>Continue</th>
+</tr>
+
+<tr>
+<td>Stops Loop Completely</td>
+<td>Skips Current Iteration</td>
+</tr>
+
+<tr>
+<td>Exits Loop</td>
+<td>Moves To Next Iteration</td>
+</tr>
+
+<tr>
+<td>Used To Terminate</td>
+<td>Used To Skip</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="content-box">
+<h2>🛒 Shopping Example</h2>
+
+<pre>
+products = ["Phone", "Laptop", "Out Of Stock", "Watch"]
+
+for product in products:
+
+    if product == "Out Of Stock":
+        continue
+
+    print(product)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Phone
+Laptop
+Watch
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎓 Student Example</h2>
+
+<pre>
+marks = [90, 45, 20, 80, 15]
+
+for mark in marks:
+
+    if mark < 35:
+        continue
+
+    print(mark)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+90
+45
+80
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🧠 Real World Example</h2>
+
+<p>
+Social media apps often skip blocked users' posts while displaying the feed.
+Continue can be used to ignore those records and process the remaining ones.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Common Mistake</h2>
+
+<pre>
+if i == 5:
+continue
+</pre>
+
+<p>
+Error because continue must be properly indented.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Correct Way</h2>
+
+<pre>
+if i == 5:
+    continue
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎤 Interview Questions</h2>
+
+<ul>
+<li>What is Continue Statement?</li>
+<li>Difference between Break and Continue?</li>
+<li>Can Continue be used in While Loops?</li>
+<li>Does Continue stop the loop?</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>🏋 Practice Questions</h2>
+
+<ol>
+<li>Print numbers from 1 to 20 but skip 10.</li>
+<li>Print odd numbers using Continue.</li>
+<li>Skip negative numbers in a list.</li>
+<li>Create a student marks filter.</li>
+</ol>
+
+</div>
+
+<div class="content-box">
+<h2>🚀 Mini Challenge</h2>
+
+<p>
+Print numbers from 1 to 50 but skip all multiples of 5.
+</p>
+
+<pre>
+for i in range(1,51):
+
+    # Write Continue Logic Here
+
+    print(i)
+</pre>
+
+</div>
+
+</div>
+<div class="topic-section">
+
+<h1>Lists</h1>
+
+<div class="content-box">
+<h2>📖 Definition</h2>
+
+<p>
+A List is a collection used to store multiple values in a single variable.
+Lists are ordered, changeable (mutable), and allow duplicate values.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Why We Use Lists</h2>
+
+<ul>
+<li>Store multiple values together.</li>
+<li>Manage large amounts of data.</li>
+<li>Access data easily using indexes.</li>
+<li>Perform operations on groups of items.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>📝 Syntax</h2>
+
+<pre>
+fruits = ["Apple", "Banana", "Mango"]
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔍 Syntax Breakdown</h2>
+
+<ul>
+<li><b>fruits</b> → Variable Name.</li>
+<li><b>[]</b> → Represents a List.</li>
+<li><b>"Apple"</b> → First Item.</li>
+<li><b>"Banana"</b> → Second Item.</li>
+<li><b>"Mango"</b> → Third Item.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>💡 How Lists Work</h2>
+
+<p>
+Each item inside a list has an index.
+Indexing starts from 0.
+</p>
+
+<pre>
+fruits = ["Apple", "Banana", "Mango"]
+
+Index:
+Apple  → 0
+Banana → 1
+Mango  → 2
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 1: Create a List</h2>
+
+<pre>
+fruits = ["Apple", "Banana", "Mango"]
+
+print(fruits)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+['Apple', 'Banana', 'Mango']
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 2: Access List Items</h2>
+
+<pre>
+fruits = ["Apple", "Banana", "Mango"]
+
+print(fruits[0])
+print(fruits[1])
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Apple
+Banana
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📚 Negative Indexing</h2>
+
+<p>
+Negative indexes start from the end of the list.
+</p>
+
+<pre>
+fruits = ["Apple", "Banana", "Mango"]
+
+print(fruits[-1])
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Mango
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📚 List Slicing</h2>
+
+<p>
+Slicing allows us to get multiple items from a list.
+</p>
+
+<pre>
+numbers = [10,20,30,40,50]
+
+print(numbers[1:4])
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+[20, 30, 40]
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>➕ append() Method</h2>
+
+<p>
+Adds an item at the end of the list.
+</p>
+
+<pre>
+fruits = ["Apple", "Banana"]
+
+fruits.append("Mango")
+
+print(fruits)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+['Apple', 'Banana', 'Mango']
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>➖ remove() Method</h2>
+
+<p>
+Removes a specific item from the list.
+</p>
+
+<pre>
+fruits = ["Apple", "Banana", "Mango"]
+
+fruits.remove("Banana")
+
+print(fruits)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+['Apple', 'Mango']
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🗑 pop() Method</h2>
+
+<p>
+Removes an item using its index.
+</p>
+
+<pre>
+fruits = ["Apple", "Banana", "Mango"]
+
+fruits.pop(1)
+
+print(fruits)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+['Apple', 'Mango']
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📏 len() Function</h2>
+
+<p>
+Returns the number of items in a list.
+</p>
+
+<pre>
+fruits = ["Apple", "Banana", "Mango"]
+
+print(len(fruits))
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+3
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔄 Loop Through a List</h2>
+
+<pre>
+fruits = ["Apple", "Banana", "Mango"]
+
+for fruit in fruits:
+    print(fruit)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Apple
+Banana
+Mango
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Common Mistake</h2>
+
+<pre>
+fruits = ["Apple", "Banana", "Mango"]
+
+print(fruits[5])
+</pre>
+
+<p>
+Error because index 5 does not exist.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Correct Way</h2>
+
+<pre>
+fruits = ["Apple", "Banana", "Mango"]
+
+print(fruits[2])
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🛒 Shopping Cart Example</h2>
+
+<pre>
+cart = ["Phone", "Laptop", "Watch"]
+
+print(cart)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎓 Student Marks Example</h2>
+
+<pre>
+marks = [90, 85, 78, 95]
+
+print(max(marks))
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🧠 Real World Example</h2>
+
+<p>
+Instagram stores posts, YouTube stores videos, and Amazon stores products using collections similar to Lists.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>🎤 Interview Questions</h2>
+
+<ul>
+<li>What is a List?</li>
+<li>Are Lists mutable or immutable?</li>
+<li>What is indexing?</li>
+<li>Difference between append() and insert()?</li>
+<li>Difference between remove() and pop()?</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>🏋 Practice Questions</h2>
+
+<ol>
+<li>Create a list of 5 fruits.</li>
+<li>Print the first and last item.</li>
+<li>Add a new fruit using append().</li>
+<li>Remove an item using remove().</li>
+<li>Loop through the list and print all items.</li>
+</ol>
+
+</div>
+
+<div class="content-box">
+<h2>🚀 Mini Challenge</h2>
+
+<p>
+Create a Student Management List.
+</p>
+
+<pre>
+students = []
+
+# Add 5 student names
+
+# Print all students
+
+# Remove one student
+
+# Print updated list
+</pre>
+
+</div>
+
+</div>
+<div class="topic-section">
+
+<h1>Tuples</h1>
+
+<div class="content-box">
+<h2>📖 Definition</h2>
+
+<p>
+A Tuple is a collection used to store multiple values in a single variable.
+Tuples are ordered and allow duplicate values, but they cannot be changed after creation.
+This property is called Immutable.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Why We Use Tuples</h2>
+
+<ul>
+<li>To store fixed data.</li>
+<li>To improve performance.</li>
+<li>To prevent accidental modifications.</li>
+<li>To represent constant values.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>📝 Syntax</h2>
+
+<pre>
+fruits = ("Apple", "Banana", "Mango")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔍 Syntax Breakdown</h2>
+
+<ul>
+<li><b>fruits</b> → Variable Name.</li>
+<li><b>()</b> → Represents a Tuple.</li>
+<li><b>"Apple"</b> → First Item.</li>
+<li><b>"Banana"</b> → Second Item.</li>
+<li><b>"Mango"</b> → Third Item.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>💡 How Tuples Work</h2>
+
+<p>
+Each item inside a tuple has an index.
+Like Lists, indexing starts from 0.
+However, tuple values cannot be changed after creation.
+</p>
+
+<pre>
+fruits = ("Apple", "Banana", "Mango")
+
+Index:
+Apple  → 0
+Banana → 1
+Mango  → 2
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 1: Create a Tuple</h2>
+
+<pre>
+fruits = ("Apple", "Banana", "Mango")
+
+print(fruits)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+('Apple', 'Banana', 'Mango')
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 2: Access Tuple Items</h2>
+
+<pre>
+fruits = ("Apple", "Banana", "Mango")
+
+print(fruits[0])
+print(fruits[1])
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Apple
+Banana
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📚 Negative Indexing</h2>
+
+<pre>
+fruits = ("Apple", "Banana", "Mango")
+
+print(fruits[-1])
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Mango
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📚 Tuple Slicing</h2>
+
+<pre>
+numbers = (10,20,30,40,50)
+
+print(numbers[1:4])
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+(20, 30, 40)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📦 Tuple Packing</h2>
+
+<p>
+Packing means storing multiple values into a tuple.
+</p>
+
+<pre>
+student = ("Sriram", 18, "Cyber Security")
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📤 Tuple Unpacking</h2>
+
+<p>
+Unpacking means extracting tuple values into separate variables.
+</p>
+
+<pre>
+student = ("Sriram", 18, "Cyber Security")
+
+name, age, branch = student
+
+print(name)
+print(age)
+print(branch)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Sriram
+18
+Cyber Security
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📏 len() Function</h2>
+
+<pre>
+fruits = ("Apple", "Banana", "Mango")
+
+print(len(fruits))
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+3
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔄 Loop Through a Tuple</h2>
+
+<pre>
+fruits = ("Apple", "Banana", "Mango")
+
+for fruit in fruits:
+    print(fruit)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Apple
+Banana
+Mango
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Common Mistake</h2>
+
+<pre>
+fruits = ("Apple", "Banana", "Mango")
+
+fruits[0] = "Orange"
+</pre>
+
+<p>
+Error because Tuples are Immutable.
+You cannot modify tuple values.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Correct Way</h2>
+
+<pre>
+fruits = ("Apple", "Banana", "Mango")
+
+print(fruits[0])
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📊 List vs Tuple</h2>
+
+<table style="width:100%;border-collapse:collapse;">
+<tr>
+<th>List</th>
+<th>Tuple</th>
+</tr>
+
+<tr>
+<td>[]</td>
+<td>()</td>
+</tr>
+
+<tr>
+<td>Mutable</td>
+<td>Immutable</td>
+</tr>
+
+<tr>
+<td>Slower</td>
+<td>Faster</td>
+</tr>
+
+<tr>
+<td>Can Modify</td>
+<td>Cannot Modify</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="content-box">
+<h2>🏫 Student Record Example</h2>
+
+<pre>
+student = ("Sriram", 18, "Cyber Security")
+
+print(student)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🌍 Coordinate Example</h2>
+
+<pre>
+location = (17.3850, 78.4867)
+
+print(location)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🧠 Real World Example</h2>
+
+<p>
+GPS coordinates, database records, and configuration settings are often stored using tuples because the values should not change.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>🎤 Interview Questions</h2>
+
+<ul>
+<li>What is a Tuple?</li>
+<li>What does Immutable mean?</li>
+<li>Difference between List and Tuple?</li>
+<li>What is Tuple Unpacking?</li>
+<li>Can a Tuple contain duplicate values?</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>🏋 Practice Questions</h2>
+
+<ol>
+<li>Create a tuple containing 5 city names.</li>
+<li>Print the first and last item.</li>
+<li>Use tuple unpacking.</li>
+<li>Print all values using a loop.</li>
+<li>Find the length of a tuple.</li>
+</ol>
+
+</div>
+
+<div class="content-box">
+<h2>🚀 Mini Challenge</h2>
+
+<p>
+Create a tuple storing student information:
+Name, Age, Branch, and College.
+
+Then use tuple unpacking and print all values separately.
+</p>
+
+<pre>
+student = ("Sriram", 18, "Cyber Security", "College Name")
+
+# Unpack values here
+
+# Print all values
+</pre>
+
+</div>
+
+</div>
+<div class="topic-section">
+
+<h1>Sets</h1>
+
+<div class="content-box">
+<h2>📖 Definition</h2>
+
+<p>
+A Set is a collection used to store multiple values in a single variable.
+Sets do not allow duplicate values and are unordered.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>💡 Why We Use Sets</h2>
+
+<ul>
+<li>To store unique values.</li>
+<li>To remove duplicates automatically.</li>
+<li>To perform mathematical set operations.</li>
+<li>To improve searching performance.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>📝 Syntax</h2>
+
+<pre>
+fruits = {"Apple", "Banana", "Mango"}
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔍 Syntax Breakdown</h2>
+
+<ul>
+<li><b>fruits</b> → Variable Name.</li>
+<li><b>{}</b> → Represents a Set.</li>
+<li>Values inside a set must be separated by commas.</li>
+<li>Duplicate values are automatically removed.</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>💡 How Sets Work</h2>
+
+<p>
+Sets store only unique values.
+If duplicate values are added, Python automatically removes them.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Example 1: Duplicate Removal</h2>
+
+<pre>
+numbers = {1, 2, 3, 2, 1, 4}
+
+print(numbers)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+{1, 2, 3, 4}
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>➕ add() Method</h2>
+
+<p>
+Used to add a new value into a set.
+</p>
+
+<pre>
+fruits = {"Apple", "Banana"}
+
+fruits.add("Mango")
+
+print(fruits)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+{'Apple', 'Banana', 'Mango'}
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>➖ remove() Method</h2>
+
+<p>
+Used to remove a value from a set.
+</p>
+
+<pre>
+fruits = {"Apple", "Banana", "Mango"}
+
+fruits.remove("Banana")
+
+print(fruits)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+{'Apple', 'Mango'}
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📏 len() Function</h2>
+
+<pre>
+fruits = {"Apple", "Banana", "Mango"}
+
+print(len(fruits))
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+3
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🔄 Loop Through a Set</h2>
+
+<pre>
+fruits = {"Apple", "Banana", "Mango"}
+
+for fruit in fruits:
+    print(fruit)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+Apple
+Banana
+Mango
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🤝 Union Operation</h2>
+
+<p>
+Union combines all unique values from two sets.
+</p>
+
+<pre>
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+
+result = set1.union(set2)
+
+print(result)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+{1, 2, 3, 4, 5}
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Intersection Operation</h2>
+
+<p>
+Intersection returns common values between sets.
+</p>
+
+<pre>
+set1 = {1, 2, 3}
+set2 = {2, 3, 4}
+
+result = set1.intersection(set2)
+
+print(result)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+{2, 3}
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>➖ Difference Operation</h2>
+
+<p>
+Difference returns values present in the first set but not in the second set.
+</p>
+
+<pre>
+set1 = {1, 2, 3}
+set2 = {2, 3, 4}
+
+print(set1.difference(set2))
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+{1}
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>⚠ Common Mistake</h2>
+
+<pre>
+fruits = {"Apple", "Banana"}
+
+print(fruits[0])
+</pre>
+
+<p>
+Error because Sets do not support indexing.
+Sets are unordered collections.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>✅ Correct Way</h2>
+
+<pre>
+for fruit in fruits:
+    print(fruit)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>📊 List vs Set</h2>
+
+<table style="width:100%;border-collapse:collapse;">
+<tr>
+<th>List</th>
+<th>Set</th>
+</tr>
+
+<tr>
+<td>Allows Duplicates</td>
+<td>No Duplicates</td>
+</tr>
+
+<tr>
+<td>Ordered</td>
+<td>Unordered</td>
+</tr>
+
+<tr>
+<td>Supports Indexing</td>
+<td>No Indexing</td>
+</tr>
+
+<tr>
+<td>[]</td>
+<td>{}</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="content-box">
+<h2>🎓 Student Example</h2>
+
+<pre>
+students = {"Rahul", "Sriram", "Rahul", "Kiran"}
+
+print(students)
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🎯 Output</h2>
+
+<pre>
+{'Rahul', 'Sriram', 'Kiran'}
+</pre>
+
+</div>
+
+<div class="content-box">
+<h2>🧠 Real World Example</h2>
+
+<p>
+Instagram and Facebook use similar concepts to store unique user IDs.
+Duplicate IDs are not allowed.
+</p>
+
+</div>
+
+<div class="content-box">
+<h2>🎤 Interview Questions</h2>
+
+<ul>
+<li>What is a Set?</li>
+<li>Can Sets contain duplicate values?</li>
+<li>Why are Sets unordered?</li>
+<li>Difference between List and Set?</li>
+<li>What is Union and Intersection?</li>
+</ul>
+
+</div>
+
+<div class="content-box">
+<h2>🏋 Practice Questions</h2>
+
+<ol>
+<li>Create a set of 5 city names.</li>
+<li>Add a new city using add().</li>
+<li>Remove a city using remove().</li>
+<li>Find common values between two sets.</li>
+<li>Remove duplicate values from a list using a set.</li>
+</ol>
+
+</div>
+
+<div class="content-box">
+<h2>🚀 Mini Challenge</h2>
+
+<p>
+Create two sets containing student names.
+Find:
+</p>
+
+<ul>
+<li>All Students (Union)</li>
+<li>Common Students (Intersection)</li>
+<li>Unique Students (Difference)</li>
+</ul>
+
+<pre>
+class_a = {"Rahul", "Sriram", "Kiran"}
+class_b = {"Sriram", "Vamsi", "Kiran"}
+# Write your code here
+</pre>
+</div>
+</div>
