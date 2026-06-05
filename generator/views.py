@@ -264,4 +264,9 @@ client = OpenAI(
 #=========================================
 # CHATBOT API
 # =========================================
-
+def datasciencecourse(request):
+    return render(request, 'datasciencecourse.html')
+def aiandmachinelearningcourse(request):
+    return render(request, 'aiandmachinelearningcourse.html')
+def pythonpdf(request):
+    return render(request, 'pythonpdf.html')

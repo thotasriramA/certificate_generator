@@ -69,6 +69,13 @@ h1 {
 .course-title {
     font-size: 18px;
     font-weight: 600;
+    color: #1c2b3a;
+}
+
+/* REMOVE LINK STYLE */
+.course-link {
+    text-decoration: none;
+    color: inherit;
 }
 
 /* ===== QUOTE ===== */
@@ -94,12 +101,14 @@ h1 {
 @media (max-width: 900px) {
     .container {
         grid-template-columns: repeat(2, 1fr);
+        padding: 20px 40px;
     }
 }
 
 @media (max-width: 600px) {
     .container {
         grid-template-columns: 1fr;
+        padding: 20px;
     }
 }
 
@@ -110,46 +119,57 @@ h1 {
 
 <div class="container">
 
-    <div class="course-box">
-        <div class="icon">🐍</div>
-        <div class="course-title">Python</div>
-    </div>
+    <!-- PYTHON -->
+    <a href="{% url 'pythonpdf' %}" class="course-link">
+        <div class="course-box">
+            <div class="icon">🐍</div>
+            <div class="course-title">Python</div>
+        </div>
+    </a>
 
+    <!-- JAVA -->
     <div class="course-box">
         <div class="icon">☕</div>
         <div class="course-title">Java</div>
     </div>
 
+    <!-- C -->
     <div class="course-box">
         <div class="icon">🔵</div>
         <div class="course-title">C</div>
     </div>
 
+    <!-- C++ -->
     <div class="course-box">
         <div class="icon">💠</div>
         <div class="course-title">C++</div>
     </div>
 
+    <!-- JAVASCRIPT -->
     <div class="course-box">
         <div class="icon">🟨</div>
         <div class="course-title">JavaScript</div>
     </div>
 
+    <!-- HTML -->
     <div class="course-box">
         <div class="icon">🌐</div>
         <div class="course-title">HTML</div>
     </div>
 
+    <!-- CSS -->
     <div class="course-box">
         <div class="icon">🎨</div>
         <div class="course-title">CSS</div>
     </div>
 
+    <!-- DJANGO -->
     <div class="course-box">
         <div class="icon">🟢</div>
         <div class="course-title">Django</div>
     </div>
 
+    <!-- SQL -->
     <div class="course-box">
         <div class="icon">🗄️</div>
         <div class="course-title">SQL</div>
@@ -172,5 +192,3 @@ h1 {
 
 </div>
 
-</body>
-</html>

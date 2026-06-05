@@ -1,0 +1,410 @@
+{% include 'header.html' %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Outfit', Arial, sans-serif;
+  background: #f4f7fb;
+  color: #222;
+}
+
+.page-header {
+  padding: 30px 40px 20px;
+}
+.page-header h1 {
+  font-size: 28px;
+  color: #111;
+  margin-bottom: 6px;
+}
+.page-header p {
+  color: #666;
+  font-size: 15px;
+}
+
+.main-layout {
+  display: flex;
+  gap: 24px;
+  padding: 0 30px 30px;
+  height: calc(100vh - 160px);
+}
+
+/* ───── LEFT LIST ───── */
+.video-list {
+  width: 420px;
+  min-width: 340px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-right: 6px;
+}
+.video-list::-webkit-scrollbar { width: 5px; }
+.video-list::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+
+.list-wrapper {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-card {
+  display: flex;
+  gap: 12px;
+  background: transparent;
+  padding: 14px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #e8ecf3;
+  border-left: 3px solid transparent;
+  transition: background 0.2s, border-color 0.2s;
+}
+.list-card:last-child { border-bottom: none; }
+.list-card:hover { background: #eef3ff; border-left-color: #2b5cff; }
+.list-card.active { background: #e4eaff; border-left-color: #2b5cff; }
+
+.list-thumb {
+  position: relative;
+  flex-shrink: 0;
+  width: 168px;
+  height: 95px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+.list-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.25s;
+}
+.list-card:hover .list-thumb img,
+.list-card.active .list-thumb img { opacity: 0.85; }
+
+.list-play-overlay {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.2s;
+}
+.list-card:hover .list-play-overlay,
+.list-card.active .list-play-overlay { opacity: 1; }
+.list-play-overlay .play-circle {
+  width: 34px; height: 34px;
+  background: rgba(255,0,0,0.92);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+.list-duration {
+  position: absolute; bottom: 5px; right: 6px;
+  background: rgba(0,0,0,0.78);
+  color: #fff; font-size: 11px; font-weight: 600;
+  padding: 2px 5px; border-radius: 4px;
+}
+
+.list-info {
+  flex: 1; overflow: hidden;
+  display: flex; flex-direction: column; gap: 4px;
+  padding-top: 2px;
+}
+.list-title {
+  font-size: 13.5px; font-weight: 600; color: #0f0f0f;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.list-channel {
+  font-size: 12px; color: #606060; font-weight: 500;
+  display: flex; align-items: center; gap: 4px;
+}
+.list-channel i { font-size: 12px; color: #2b5cff; }
+.list-tags {
+  display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px;
+}
+.list-tag {
+  background: #eef3ff; color: #2b5cff;
+  padding: 2px 8px; border-radius: 20px;
+  font-size: 10.5px; font-weight: 600;
+}
+
+/* ───── RIGHT DETAIL — YouTube style ───── */
+.video-detail {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-bottom: 10px;
+}
+.video-detail::-webkit-scrollbar { width: 5px; }
+.video-detail::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+
+/* Placeholder */
+.placeholder {
+  flex: 1; display: flex;
+  flex-direction: column;
+  align-items: center; justify-content: center;
+  color: #aaa; gap: 14px;
+  background: #fff; border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+.placeholder i { font-size: 60px; }
+.placeholder p { font-size: 16px; }
+
+/* Video card — YouTube-style layout */
+.yt-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+
+/* Video thumbnail — natural 16:9, not stretched */
+.yt-thumb-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  cursor: pointer;
+  max-height: 380px;
+  overflow: hidden;
+}
+.yt-thumb-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s;
+}
+.yt-thumb-wrap:hover img { opacity: 0.85; }
+.yt-big-play {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px; height: 64px;
+  background: rgba(255,0,0,0.92);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 26px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+  transition: transform 0.25s, background 0.2s;
+  pointer-events: none;
+}
+.yt-thumb-wrap:hover .yt-big-play {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: #cc0000;
+}
+.yt-watch-hint {
+  position: absolute; bottom: 12px; left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.65);
+  color: #fff; padding: 5px 16px;
+  border-radius: 20px; font-size: 12.5px;
+  pointer-events: none;
+}
+
+/* Info section below video */
+.yt-info {
+  padding: 18px 20px 20px;
+  display: flex; flex-direction: column; gap: 10px;
+  border-top: 1px solid #f0f0f0;
+}
+.yt-title {
+  font-size: 18px; font-weight: 700;
+  color: #0f0f0f; line-height: 1.4;
+}
+.yt-meta-row {
+  display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap; gap: 10px;
+}
+.yt-channel {
+  font-size: 14px; color: #606060; font-weight: 500;
+  display: flex; align-items: center; gap: 6px;
+}
+.yt-channel i { color: #ff0000; font-size: 16px; }
+.yt-tags {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.yt-tag {
+  background: #eef3ff; color: #2b5cff;
+  padding: 5px 12px; border-radius: 20px;
+  font-size: 12px; font-weight: 600;
+}
+.yt-desc {
+  font-size: 14px; color: #555; line-height: 1.75;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 10px;
+}
+.yt-btn-row {
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+.watch-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #ff0000; color: #fff;
+  padding: 11px 22px; border-radius: 10px;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.watch-btn:hover { background: #b30000; transform: translateY(-2px); }
+.watch-btn i { font-size: 18px; }
+
+/* Source badge */
+.source-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #f0f4ff; color: #2b5cff;
+  padding: 8px 14px; border-radius: 10px;
+  font-size: 13px; font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .main-layout { flex-direction: column; height: auto; padding: 0 12px 24px; }
+  .video-list { width: 100%; min-width: unset; }
+  .list-thumb { width: 130px; height: 74px; }
+  .yt-thumb-wrap { max-height: 220px; }
+}
+</style>
+
+<div class="page-header">
+  <h1>🤖 AI & Machine Learning Courses</h1>
+  <p>Top courses from Google, MIT, Stanford & more — watch free on YouTube</p>
+</div>
+
+<div class="main-layout">
+
+  <div class="video-list" id="videoList">
+    <div class="list-wrapper" id="listWrapper"></div>
+  </div>
+
+  <div class="video-detail" id="videoDetail">
+    <div class="placeholder">
+      <i class="ti ti-robot"></i>
+      <p>Select a course from the left to see details</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const courses = [
+  {
+    id: "jGwO_UgTS7I",
+    title: "Stanford CS229: Machine Learning Full Course – Andrew Ng",
+    channel: "Stanford Online",
+    source: "🎓 Stanford University",
+    desc: "Andrew Ng's legendary Stanford ML course covering supervised learning, unsupervised learning, neural networks, SVMs and more. One of the most watched ML courses in the world.",
+    topics: ["ML", "Supervised", "Neural Nets"],
+    duration: "1:17:07"
+  },
+  {
+    id: "ErnWZxJovaM",
+    title: "MIT Introduction to Deep Learning 2024 | 6.S191",
+    channel: "Alexander Amini – MIT",
+    source: "🎓 MIT",
+    desc: "MIT's official 2024 deep learning course. Covers foundations of deep learning, convolutional networks, recurrent networks, transformers, reinforcement learning and generative models.",
+    topics: ["Deep Learning", "Transformers", "MIT"],
+    duration: "1:09:58"
+  },
+  {
+    id: "i_LwzRVP7bg",
+    title: "Machine Learning for Everybody – Full Course",
+    channel: "freeCodeCamp",
+    source: "▶ freeCodeCamp",
+    desc: "Accessible beginner ML course using TensorFlow. Learn the core concepts of machine learning with hands-on Python examples. Perfect starting point for anyone new to ML.",
+    topics: ["ML", "TensorFlow", "Python"],
+    duration: "3:53:28"
+  },
+  {
+    id: "V_xro1bcAuA",
+    title: "PyTorch for Deep Learning & Machine Learning – Full Course",
+    channel: "freeCodeCamp",
+    source: "▶ freeCodeCamp",
+    desc: "Comprehensive PyTorch deep learning course by Daniel Bourke. Learn everything from tensors to training deep neural networks. Widely regarded as the best free PyTorch course.",
+    topics: ["PyTorch", "Deep Learning", "Python"],
+    duration: "25:37:26"
+  },
+  {
+    id: "hDKCxebp88A",
+    title: "Machine Learning with Python & Scikit-Learn – Full Course",
+    channel: "freeCodeCamp",
+    source: "▶ freeCodeCamp",
+    desc: "Practical hands-on ML course using Python and Scikit-Learn. Build real models including regression, classification, clustering and more with step-by-step projects.",
+    topics: ["ML", "Scikit-Learn", "Python"],
+    duration: "5:27:30"
+  },
+  {
+    id: "4t5JpDBKJ4w",
+    title: "Deep Learning Full Course for Beginners 2023",
+    channel: "Simplilearn",
+    source: "▶ Simplilearn",
+    desc: "Complete deep learning course covering neural networks, CNNs, RNNs, LSTMs and real-world projects with TensorFlow and Keras — from zero to advanced.",
+    topics: ["Deep Learning", "CNN", "LSTM"],
+    duration: "8:00:00"
+  }
+];
+
+let activeIndex = null;
+
+function renderList() {
+  document.getElementById('listWrapper').innerHTML = courses.map((c, i) => `
+    <div class="list-card ${activeIndex === i ? 'active' : ''}" onclick="selectVideo(${i})">
+      <div class="list-thumb">
+        <img src="https://img.youtube.com/vi/${c.id}/hqdefault.jpg" alt="${c.title}" loading="lazy">
+        <div class="list-play-overlay">
+          <div class="play-circle"><i class="ti ti-player-play-filled"></i></div>
+        </div>
+        <div class="list-duration">${c.duration}</div>
+      </div>
+      <div class="list-info">
+        <div class="list-title">${c.title}</div>
+        <div class="list-channel"><i class="ti ti-brand-youtube"></i>${c.channel}</div>
+        <div class="list-tags">
+          ${c.topics.map(t => `<span class="list-tag">${t}</span>`).join('')}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function selectVideo(i) {
+  activeIndex = i;
+  const c = courses[i];
+  renderList();
+
+  document.getElementById('videoDetail').innerHTML = `
+    <div class="yt-card">
+      <div class="yt-thumb-wrap" onclick="window.open('https://www.youtube.com/watch?v=${c.id}','_blank')">
+        <img
+          src="https://img.youtube.com/vi/${c.id}/maxresdefault.jpg"
+          onerror="this.src='https://img.youtube.com/vi/${c.id}/hqdefault.jpg'"
+          alt="${c.title}">
+        <div class="yt-big-play"><i class="ti ti-player-play-filled"></i></div>
+        <div class="yt-watch-hint">▶ Click to watch on YouTube</div>
+      </div>
+      <div class="yt-info">
+        <div class="yt-title">${c.title}</div>
+        <div class="yt-meta-row">
+          <div class="yt-channel"><i class="ti ti-brand-youtube"></i>${c.channel}</div>
+          <span class="source-badge"><i class="ti ti-building-university"></i>${c.source}</span>
+        </div>
+        <div class="yt-tags">
+          ${c.topics.map(t => `<span class="yt-tag">${t}</span>`).join('')}
+        </div>
+        <div class="yt-desc">${c.desc}</div>
+        <div class="yt-btn-row">
+          <a class="watch-btn" href="https://www.youtube.com/watch?v=${c.id}" target="_blank" rel="noopener">
+            <i class="ti ti-brand-youtube"></i> Watch on YouTube
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+renderList();
+</script>

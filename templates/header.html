@@ -148,10 +148,7 @@ function toggleVoice() {
 
   if (!isSpeechSupported()) {
 
-    alert(
-      'Use Google Chrome or Edge'
-    );
-
+    alert('Use Google Chrome or Edge');
     return;
   }
 
@@ -214,6 +211,8 @@ function startVoice() {
 
     command =
     command.toLowerCase()
+    .replace(/[^a-z0-9\s]/g, '')
+    .replace(/\s+/g, ' ')
     .trim();
 
     console.log(command);
@@ -296,21 +295,13 @@ function handleCommand(command) {
 
   if (
 
-    command.includes(
-      'go to home'
-    ) ||
-
-    command.includes(
-      'open home'
-    ) ||
-
+    command.includes('go to home') ||
+    command.includes('open home') ||
     command === 'home'
 
   ) {
 
-    showToast(
-      '🏠 Opening Home'
-    );
+    showToast('🏠 Opening Home');
 
     setTimeout(() => {
 
@@ -324,25 +315,13 @@ function handleCommand(command) {
 
   else if (
 
-    command.includes(
-      'open full stack development course'
-    ) ||
-
-    command.includes(
-      'full stack course'
-    ) ||
-
-    command.includes(
-      'full stack development'
-    ) ||
-
-    command.includes(
-      'mern stack'
-    ) ||
-
-    command.includes(
-      'web development course'
-    )
+    command.includes('open full stack development course') ||
+    command.includes('full stack course') ||
+    command.includes('full stack development') ||
+    command.includes('full stack developer course') ||
+    command.includes('fullstack course') ||
+    command.includes('mern stack') ||
+    command.includes('web development course')
 
   ) {
 
@@ -358,22 +337,21 @@ function handleCommand(command) {
     }, 800);
   }
 
-  // DATA ANALYST
+  // DATA ANALYSIS
 
   else if (
 
-    command.includes(
-      'data analyst course'
-    ) ||
-
-    command.includes(
-      'open data analyst course'
-    )
+    command.includes('data analysis course') ||
+    command.includes('open data analysis course') ||
+    command.includes('data analyst course') ||
+    command.includes('open data analyst course') ||
+    command.includes('data analysis') ||
+    command.includes('data analyst')
 
   ) {
 
     showToast(
-      '📊 Opening Data Analyst'
+      '📊 Opening Data Analysis'
     );
 
     setTimeout(() => {
@@ -384,24 +362,86 @@ function handleCommand(command) {
     }, 800);
   }
 
+  // DATA SCIENCE
+
+  else if (
+
+    command.includes('data science course') ||
+    command.includes('open data science course') ||
+    command.includes('data science')
+
+  ) {
+
+    showToast(
+      '📈 Opening Data Science'
+    );
+
+    setTimeout(() => {
+
+      window.location.href =
+      "{% url 'datasciencecourse' %}";
+
+    }, 800);
+  }
+
+  // AI & MACHINE LEARNING
+
+  else if (
+
+    command.includes('ai course') ||
+    command.includes('open ai course') ||
+    command.includes('open machine learning course') ||
+    command.includes('artificial intelligence') ||
+    command.includes('ai and machine learning')
+
+  ) {
+
+    showToast(
+      '🤖 Opening AI Course'
+    );
+
+    setTimeout(() => {
+
+      window.location.href =
+      "{% url 'aiandmachinelearningcourse' %}";
+
+    }, 800);
+  }
+
+  // PYTHON PDF
+
+  else if (
+
+    command.includes('python pdf') ||
+    command.includes('open python pdf') ||
+    command.includes('python notes') ||
+    command.includes('python document') ||
+    command.includes('go to python pdf')
+
+  ) {
+
+    showToast(
+      '🐍 Opening Python PDF'
+    );
+
+    setTimeout(() => {
+
+      window.location.href =
+      "{% url 'pythonpdf' %}";
+
+    }, 800);
+  }
+
   // COURSES PAGE
 
   else if (
 
-    command.includes(
-      'open courses'
-    ) ||
-
-    command.includes(
-      'go to courses'
-    ) ||
-
-    command.includes(
-      'show courses'
-    ) ||
-
-    command ===
-    'courses'
+    command.includes('open courses') ||
+    command.includes('open course') ||
+    command.includes('go to courses') ||
+    command.includes('show courses') ||
+    command.includes('course') ||
+    command === 'courses'
 
   ) {
 
@@ -421,13 +461,8 @@ function handleCommand(command) {
 
   else if (
 
-    command.includes(
-      'languages'
-    ) ||
-
-    command.includes(
-      'language pdf'
-    )
+    command.includes('languages') ||
+    command.includes('language pdf')
 
   ) {
 
@@ -435,17 +470,56 @@ function handleCommand(command) {
     "{% url 'languages' %}";
   }
 
+  // ROADMAP
+
+  else if (
+
+    command.includes('roadmap') ||
+    command.includes('open roadmap') ||
+    command.includes('show roadmap')
+
+  ) {
+
+    showToast(
+      '🗺️ Opening Roadmap'
+    );
+
+    setTimeout(() => {
+
+      window.location.href =
+      "{% url 'roadmap' %}";
+
+    }, 800);
+  }
+
+  // ABOUT
+
+  else if (
+
+    command.includes('about') ||
+    command.includes('about page') ||
+    command.includes('open about')
+
+  ) {
+
+    showToast(
+      'ℹ️ Opening About'
+    );
+
+    setTimeout(() => {
+
+      window.location.href =
+      "{% url 'about' %}";
+
+    }, 800);
+  }
+
   // CHATBOT
 
   else if (
 
-    command.includes(
-      'chatbot'
-    ) ||
-
-    command.includes(
-      'open chatbot'
-    )
+    command.includes('chatbot') ||
+    command.includes('open chatbot')
 
   ) {
 
@@ -457,13 +531,8 @@ function handleCommand(command) {
 
   else if (
 
-    command.includes(
-      'login'
-    ) ||
-
-    command.includes(
-      'sign in'
-    )
+    command.includes('login') ||
+    command.includes('sign in')
 
   ) {
 
@@ -475,13 +544,8 @@ function handleCommand(command) {
 
   else if (
 
-    command.includes(
-      'sign up'
-    ) ||
-
-    command.includes(
-      'register'
-    )
+    command.includes('sign up') ||
+    command.includes('register')
 
   ) {
 
@@ -489,21 +553,40 @@ function handleCommand(command) {
     "{% url 'signup' %}";
   }
 
+  // LOGOUT
+
+  else if (
+
+    command.includes('logout') ||
+    command.includes('log out') ||
+    command.includes('sign out')
+
+  ) {
+
+    showToast(
+      '🚪 Logging Out'
+    );
+
+    setTimeout(() => {
+
+      window.location.href =
+      "{% url 'logout_page' %}";
+
+    }, 800);
+  }
+
   // SCROLL DOWN
 
   else if (
 
-    command.includes(
-      'scroll down'
-    )
+    command.includes('scroll down')
 
   ) {
 
     window.scrollBy({
 
       top: 400,
-      behavior:
-      'smooth'
+      behavior: 'smooth'
 
     });
   }
@@ -512,17 +595,14 @@ function handleCommand(command) {
 
   else if (
 
-    command.includes(
-      'scroll up'
-    )
+    command.includes('scroll up')
 
   ) {
 
     window.scrollBy({
 
       top: -400,
-      behavior:
-      'smooth'
+      behavior: 'smooth'
 
     });
   }
@@ -531,9 +611,7 @@ function handleCommand(command) {
 
   else if (
 
-    command.includes(
-      'go back'
-    )
+    command.includes('go back')
 
   ) {
 
@@ -544,9 +622,7 @@ function handleCommand(command) {
 
   else if (
 
-    command.includes(
-      'stop voice'
-    )
+    command.includes('stop voice')
 
   ) {
 
@@ -560,5 +636,4 @@ function handleCommand(command) {
     );
   }
 }
-
 </script>

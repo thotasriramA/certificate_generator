@@ -296,7 +296,7 @@ body {
 </style>
 
 <div class="page-header">
-  <h1>📊 Data Analyst Learning Videos</h1>
+  <h1>🔬 Data Science Learning Videos</h1>
   <p>Select a course and watch on YouTube</p>
 </div>
 
@@ -318,52 +318,52 @@ body {
 <script>
 const courses = [
   {
-    id: "PSNXoAs2FtQ",
-    title: "Data Analyst Bootcamp for Beginners (SQL, Tableau, Power BI, Python, Excel)",
-    channel: "Alex The Analyst",
-    desc: "Complete beginner roadmap covering SQL, Excel, Power BI and Python projects. Perfect for anyone starting their data analyst journey from scratch.",
-    topics: ["SQL", "Excel", "Python", "Power BI"],
-    duration: "9:03:37"
-  },
-  {
-    id: "r-uOLxNrNk8",
-    title: "Data Analysis with Python – Full Course (Numpy, Pandas, Matplotlib, Seaborn)",
+    id: "ua-CiDNNj30",
+    title: "Learn Data Science Tutorial – Full Course for Beginners",
     channel: "freeCodeCamp",
-    desc: "Learn Python, pandas, numpy and visualization from scratch. Hands-on projects included to build your portfolio.",
-    topics: ["Python", "Pandas", "NumPy"],
-    duration: "4:20:43"
+    desc: "A complete beginner-friendly introduction to Data Science. Covers the important questions, methods, tools and technologies used by data scientists in the real world.",
+    topics: ["Data Science", "Python", "Statistics"],
+    duration: "6:11:38"
   },
   {
-    id: "HXV3zeQKqGY",
-    title: "SQL Tutorial – Full Database Course for Beginners",
+    id: "i_LwzRVP7bg",
+    title: "Machine Learning for Everybody – Full Course",
     channel: "freeCodeCamp",
-    desc: "Master SQL queries, joins, subqueries and database concepts used in real data analyst jobs.",
-    topics: ["SQL", "DBMS", "Queries"],
-    duration: "4:20:20"
+    desc: "Learn Machine Learning in a way accessible to absolute beginners. Covers basics of ML and how to use TensorFlow to implement different machine learning models.",
+    topics: ["ML", "TensorFlow", "Python"],
+    duration: "3:53:28"
   },
   {
-    id: "pCJ15nGFgVg",
-    title: "Excel for Data Analytics – Full Course for Beginners",
-    channel: "Luke Barousse",
-    desc: "Learn pivot tables, formulas, VLOOKUP and Excel analytics techniques used by professional analysts. Includes free course files and projects.",
-    topics: ["Excel", "Pivot", "VLOOKUP"],
-    duration: "9:00:00"
+    id: "hDKCxebp88A",
+    title: "Machine Learning with Python and Scikit-Learn – Full Course",
+    channel: "freeCodeCamp",
+    desc: "A practical, hands-on introduction to Machine Learning with Python and Scikit-Learn. Perfect for beginners with basic Python and statistics knowledge.",
+    topics: ["ML", "Scikit-Learn", "Python"],
+    duration: "5:27:30"
   },
   {
-    id: "HM81vShSlWY",
-    title: "Tableau Full Course 2023 – Learn Tableau in 9 Hours",
+    id: "HCnRxR50j7w",
+    title: "Statistics For Data Science in 5 Hours",
     channel: "Simplilearn",
-    desc: "Build interactive dashboards and visual reports using Tableau from beginner to advanced level.",
-    topics: ["Tableau", "Dashboards"],
-    duration: "9:00:00"
+    desc: "Master all key statistics concepts needed for data science — probability, distributions, hypothesis testing, regression and more explained clearly.",
+    topics: ["Statistics", "Probability", "Math"],
+    duration: "5:00:00"
   },
   {
-    id: "hUacMEcLBKQ",
-    title: "Power BI Full Course – 10 Hours | Tutorial for Beginners",
-    channel: "Edureka",
-    desc: "Learn Power BI from scratch — reports, DAX formulas, data modeling and publishing dashboards.",
-    topics: ["Power BI", "DAX"],
-    duration: "10:00:00"
+    id: "4t5JpDBKJ4w",
+    title: "Deep Learning Full Course for Beginners 2023",
+    channel: "Simplilearn",
+    desc: "Comprehensive deep learning course covering neural networks, CNNs, RNNs, LSTMs and real-world projects using TensorFlow and Keras.",
+    topics: ["Deep Learning", "Neural Nets", "TensorFlow"],
+    duration: "8:00:00"
+  },
+  {
+    id: "M7SWr5xObkA",
+    title: "Complete Natural Language Processing (NLP) Tutorial in Python",
+    channel: "NeuralNine",
+    desc: "Go through all major NLP concepts with hands-on Python examples — tokenization, stemming, sentiment analysis, named entity recognition and more.",
+    topics: ["NLP", "Python", "NLTK"],
+    duration: "3:10:00"
   }
 ];
 
@@ -414,7 +414,7 @@ function selectVideo(i) {
       ${c.topics.map(t => `<span class="detail-tag">${t}</span>`).join('')}
     </div>
     <a class="open-yt-btn" href="https://www.youtube.com/watch?v=${c.id}" target="_blank" rel="noopener">
-      <i class="ti ti-brand-youtube"></i> Watch on YouTube
+      <i class="ti ti-brand-youtube"></i> 
     </a>
   `;
 }
