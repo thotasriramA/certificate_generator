@@ -85,8 +85,12 @@ WSGI_APPLICATION = 'certificate_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'certificate_generator',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
@@ -161,7 +165,13 @@ SECRET_KEY = 'django-insecure-kd06@wm^lf$p&@!r&3j2-#tr*4i86l9txct0-jo57#4(x(a+zs
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    
+    'certificate-generator-5-kvm7.onrender.com',
+    "localhost",
+    "127.0.0.1",
+]
+
 
 
 # Application definition
@@ -211,8 +221,12 @@ WSGI_APPLICATION = 'certificate_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'certificate_generator',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 

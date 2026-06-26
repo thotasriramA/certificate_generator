@@ -44,7 +44,15 @@ pre{
     overflow-x:auto;
 }
 </style>
+<form method="POST">
+    {% csrf_token %}
 
+    <button type="submit" name="like">
+        ❤️ Like
+    </button>
+</form>
+
+<h3>Total Likes: {{ total_likes }}</h3>
 <div class="topic-section">
 
 <h1>Introduction to Python</h1>

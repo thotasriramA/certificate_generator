@@ -38,3 +38,16 @@ class Message(models.Model):
 
     def __str__(self):
         return self.sender
+class LikeAndComment(models.Model):
+
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+
+    liked = models.BooleanField(default=True)
+
+    comment = models.TextField(blank=True,null=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.user.username
+    

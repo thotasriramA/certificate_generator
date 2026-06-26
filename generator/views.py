@@ -12,7 +12,8 @@ import google.generativeai as genai
 import json
 
 from openai import OpenAI
-from .models import Chat, Message
+from .models import Chat, LikeAndComment, Message
+from django.db import models
 
 # =========================================
 # LANDING PAGE
@@ -268,5 +269,53 @@ def datasciencecourse(request):
     return render(request, 'datasciencecourse.html')
 def aiandmachinelearningcourse(request):
     return render(request, 'aiandmachinelearningcourse.html')
+
 def pythonpdf(request):
-    return render(request, 'pythonpdf.html')
+
+    if request.method == "POST":
+
+        # Like Button Click
+        if 'like' in request.POST:
+
+            already_liked = LikeAndComment.objects.filter(
+                user=request.user,
+                liked=True
+            ).exists()
+
+            if not already_liked:
+
+                LikeAndComment.objects.create(
+                    user=request.user,
+                    liked=True
+                )
+
+        # Comment Submit
+        elif 'comment_submit' in request.POST:
+
+            comment = request.POST.get('comment')
+
+            if comment:
+
+                LikeAndComment.objects.create(
+                    user=request.user,
+                    comment=comment
+                )
+
+        return redirect('pythonpdf')
+
+    total_likes = LikeAndComment.objects.filter(
+        liked=True
+    ).count()
+
+    comments = LikeAndComment.objects.exclude(
+        comment__isnull=True
+    ).exclude(
+        comment=''
+    ).order_by('-created_at')
+
+    context = {
+        'total_likes': total_likes,
+        'comments': comments,
+    }
+
+    return render(request,'pythonpdf.html',context)
